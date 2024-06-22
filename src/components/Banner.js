@@ -63,7 +63,7 @@ export const Banner = () => {
                     isVisible ? "animate__animated animate__fadeIn" : ""
                   }
                 >
-                  <span className="tagline">Welcome to PXL8</span>
+                  <span className="tagline">Welcome your future in the present!</span>
                   <h1>
                     {`Hi! I'm Zsolt`}<br />{" "}
                     <span

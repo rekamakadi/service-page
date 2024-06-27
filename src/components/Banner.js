@@ -63,9 +63,12 @@ export const Banner = () => {
                     isVisible ? "animate__animated animate__fadeIn" : ""
                   }
                 >
-                  <span className="tagline">Welcome your future in the present!</span>
+                  <span className="tagline">
+                    Welcome your future in the present!
+                  </span>
                   <h1>
-                    {`Hi! I'm Zsolt`}<br />{" "}
+                    {`Hi! I'm Zsolt`}
+                    <br />{" "}
                     <span
                       className="txt-rotate"
                       dataPeriod="1000"
@@ -81,9 +84,11 @@ export const Banner = () => {
                     printer took a galley of type and scrambled it to make a
                     type specimen book.
                   </p>
-                  <button onClick={() => console.log("connect")}>
-                    Let’s Connect <ArrowRightCircle size={25} />
-                  </button>
+                  <a href="#connect">
+                    <button onClick={() => console.log("connect")}>
+                      Let’s Connect <ArrowRightCircle size={25} />
+                    </button>
+                  </a>
                 </div>
               )}
             </TrackVisibility>
@@ -96,7 +101,7 @@ export const Banner = () => {
                     isVisible ? "animate__animated animate__zoomIn" : ""
                   }
                 >
-                  <img src={''} alt="Header Img" />
+                  <img src={""} alt="Header Img" />
                 </div>
               )}
             </TrackVisibility>

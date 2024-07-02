@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-// import headerImg from "../assets/img/header-img.svg";
 import { ArrowRightCircle } from "react-bootstrap-icons";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
+import { ObjectToMove } from "./ObjectToMove.js";
 
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
@@ -11,7 +11,7 @@ export const Banner = () => {
   const [text, setText] = useState("");
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [index, setIndex] = useState(1);
-  const toRotate = ["Graphic Designer", "Animator", "Web Developer"];
+  const toRotate = ["Graphic Design", "Animation", "Web Development"];
   const period = 2000;
 
   useEffect(() => {
@@ -55,7 +55,7 @@ export const Banner = () => {
     <section className="banner" id="home">
       <Container>
         <Row className="aligh-items-center">
-          <Col xs={12} md={6} xl={7}>
+          <Col xs={12} md={6} xl={6}>
             <TrackVisibility>
               {({ isVisible }) => (
                 <div
@@ -67,12 +67,12 @@ export const Banner = () => {
                     Welcome your future in the present!
                   </span>
                   <h1>
-                    {`Hi! I'm Zsolt`}
+                    {`Hey! We are []`}
                     <br />{" "}
                     <span
                       className="txt-rotate"
-                      dataPeriod="1000"
-                      data-rotate='[ "Graphic Designer", "Animator", "Web Developer" ]'
+                      dataperiod="1000"
+                      data-rotate='[ "Graphic Design", "Animation", "Web Development" ]'
                     >
                       <span className="wrap">{text}</span>
                     </span>
@@ -93,15 +93,16 @@ export const Banner = () => {
               )}
             </TrackVisibility>
           </Col>
-          <Col xs={12} md={6} xl={5}>
+          <Col xs={12} md={6} xl={6}>
             <TrackVisibility>
               {({ isVisible }) => (
                 <div
                   className={
                     isVisible ? "animate__animated animate__zoomIn" : ""
                   }
+                  style={{ width: "100%", height: "100%" }}
                 >
-                  <img src={""} alt="Header Img" />
+                  <ObjectToMove objToRender="cube"/>
                 </div>
               )}
             </TrackVisibility>

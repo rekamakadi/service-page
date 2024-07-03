@@ -1,56 +1,12 @@
-import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { ArrowRightCircle } from "react-bootstrap-icons";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 import { ObjectToMove } from "./ObjectToMove.js";
+import { TypeAnimation } from "react-type-animation";
 
 export const Banner = () => {
-  const [loopNum, setLoopNum] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [text, setText] = useState("");
-  const [delta, setDelta] = useState(300 - Math.random() * 100);
-  const [index, setIndex] = useState(1);
-  const toRotate = ["Graphic Design", "Animation", "Web Development"];
-  const period = 2000;
-
-  useEffect(() => {
-    let ticker = setInterval(() => {
-      tick();
-    }, delta);
-
-    return () => {
-      clearInterval(ticker);
-    };
-  }, [text]);
-
-  const tick = () => {
-    let i = loopNum % toRotate.length;
-    let fullText = toRotate[i];
-    let updatedText = isDeleting
-      ? fullText.substring(0, text.length - 1)
-      : fullText.substring(0, text.length + 1);
-
-    setText(updatedText);
-
-    if (isDeleting) {
-      setDelta((prevDelta) => prevDelta / 2);
-    }
-
-    if (!isDeleting && updatedText === fullText) {
-      setIsDeleting(true);
-      setIndex((prevIndex) => prevIndex - 1);
-      setDelta(period);
-    } else if (isDeleting && updatedText === "") {
-      setIsDeleting(false);
-      setLoopNum(loopNum + 1);
-      setIndex(1);
-      setDelta(500);
-    } else {
-      setIndex((prevIndex) => prevIndex + 1);
-    }
-  };
-
+  
   return (
     <section className="banner" id="home">
       <Container>
@@ -66,17 +22,24 @@ export const Banner = () => {
                   <span className="tagline">
                     Welcome your future in the present!
                   </span>
-                  <h1>
-                    {`Hey! We are []`}
-                    <br />{" "}
-                    <span
-                      className="txt-rotate"
-                      dataperiod="1000"
-                      data-rotate='[ "Graphic Design", "Animation", "Web Development" ]'
-                    >
-                      <span className="wrap">{text}</span>
-                    </span>
-                  </h1>
+                  <h1>{`Hey! We are SphereDiceVisuals`}</h1>
+
+                  <h2>
+                    <TypeAnimation
+                      sequence={[
+                        "Graphic Design",
+                        1000,
+                        "Animation",
+                        1000,
+                        "Web Development",
+                        1000,
+                      ]}
+                      speed={50}
+                      repeat={Infinity}
+                      className="font-bold italic"
+                    />
+                  </h2>
+                  <br />
                   <p>
                     Lorem Ipsum is simply dummy text of the printing and
                     typesetting industry. Lorem Ipsum has been the industry's
@@ -102,7 +65,7 @@ export const Banner = () => {
                   }
                   style={{ width: "100%", height: "100%" }}
                 >
-                  <ObjectToMove objToRender="cube"/>
+                  <ObjectToMove objToRender="cube" />
                 </div>
               )}
             </TrackVisibility>

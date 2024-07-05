@@ -6,7 +6,6 @@ import { ObjectToMove } from "./ObjectToMove.js";
 import { TypeAnimation } from "react-type-animation";
 
 export const Banner = () => {
-  
   return (
     <section className="banner" id="home">
       <Container>
@@ -20,16 +19,19 @@ export const Banner = () => {
                   }
                 >
                   <span className="tagline">
-                    Welcome your future in the present!
+                    Your digital dreams, designed and delivered.
                   </span>
-                  <h1>{`Hey! We are SphereDiceVisuals`}</h1>
+                  <h1>{`Hey, we are 
+                  Sphere Dice Visuals`}</h1>
 
                   <h2>
                     <TypeAnimation
                       sequence={[
-                        "Graphic Design",
-                        1000,
                         "Animation",
+                        1000,
+                        "Branding",
+                        1000,
+                        "Product Visualization",
                         1000,
                         "Web Development",
                         1000,

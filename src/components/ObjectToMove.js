@@ -10,14 +10,14 @@ export const ObjectToMove = ({ objectName, mousePosition }) => {
 
   useFrame(() => {
     if (objectRef.current) {
-      objectRef.current.rotation.y += 0.005; // Automatic rotation
-      objectRef.current.rotation.x += 0.005; // Automatic rotation
+      objectRef.current.rotation.y += 0.001; // Automatic rotation
+      objectRef.current.rotation.x += 0.001; // Automatic rotation
 
       // Mouse movement adjustment
       objectRef.current.rotation.y +=
-        (mousePosition.current.x / window.innerWidth) * 0.01;
+        (mousePosition.current.x / window.innerWidth) * 0.03;
       objectRef.current.rotation.x +=
-        (mousePosition.current.y / window.innerHeight) * 0.01;
+        (mousePosition.current.y / window.innerHeight) * 0.03;
     }
   });
 

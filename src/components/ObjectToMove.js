@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 
-export const ObjectToMove = ({ objectName }) => {
+export const ObjectToMove = ({ objectName, onPointerOver, onPointerOut }) => {
   const { scene } = useGLTF(
     `${process.env.PUBLIC_URL}/models/${objectName}/scene.gltf`
   );
@@ -15,5 +15,14 @@ export const ObjectToMove = ({ objectName }) => {
     }
   });
 
-  return <primitive ref={objectRef} object={scene} />;
+  return (
+    <mesh
+      ref={objectRef}
+      onPointerOver={onPointerOver}
+      onPointerOut={onPointerOut}
+      scale={[1, 1, 1]}
+    >
+      <primitive object={scene} />
+    </mesh>
+  );
 };

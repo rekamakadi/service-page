@@ -2,7 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { ArrowRightCircle } from "react-bootstrap-icons";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
-import { ObjectToMove } from "./ObjectToMove.js";
+import { CanvasForObjectToMove } from "./CanvasForObjectToMove.js";
 import { TypeAnimation } from "react-type-animation";
 
 export const Banner = () => {
@@ -67,7 +67,7 @@ export const Banner = () => {
                   }
                   style={{ width: "100%", height: "100%" }}
                 >
-                  <ObjectToMove objToRender="cube" />
+                  <CanvasForObjectToMove objectName="cube" />
                 </div>
               )}
             </TrackVisibility>

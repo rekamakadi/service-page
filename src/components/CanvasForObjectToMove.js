@@ -5,6 +5,7 @@ import { ObjectToMove } from "./ObjectToMove";
 
 export const CanvasForObjectToMove = ({ objectName }) => {
   const [isPointerOver, setIsPointerOver] = useState(false);
+  const [isPointerDown, setIsPointerDown] = useState(false);
   const objectRef = useRef();
   const [cursor, setCursor] = useState("default");
 
@@ -16,6 +17,15 @@ export const CanvasForObjectToMove = ({ objectName }) => {
   const handlePointerOut = () => {
     setIsPointerOver(false);
     setCursor("default");
+    setIsPointerDown(false);
+  };
+
+  const handlePointerDown = () => {
+    setIsPointerDown(true);
+  };
+
+  const handlePointerUp = () => {
+    setIsPointerDown(false);
   };
 
   return (
@@ -33,18 +43,20 @@ export const CanvasForObjectToMove = ({ objectName }) => {
           gl.domElement.style.touchAction = "none";
         }}
       >
-        <ambientLight intensity={2} color={0xffffff} />
+        <ambientLight intensity={1} color={0xffffff} />
         <directionalLight position={[5, 5, 5]} intensity={1} />
         <pointLight position={[10, 10, 10]} intensity={1} />
         <ObjectToMove
           objectName={objectName}
           onPointerOver={handlePointerOver}
           onPointerOut={handlePointerOut}
+          onPointerDown={handlePointerDown}
+          onPointerUp={handlePointerUp}
         />
         <OrbitControls
           ref={objectRef}
-          enabled={isPointerOver}
-          enableZoom={true}
+          enabled={isPointerOver || isPointerDown}
+          enableZoom={isPointerOver || isPointerDown}
           enablePan={false}
           enableDamping={true}
           dampingFactor={0.1}

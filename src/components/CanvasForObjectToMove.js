@@ -4,21 +4,28 @@ import { OrbitControls } from "@react-three/drei";
 import { ObjectToMove } from "./ObjectToMove";
 
 export const CanvasForObjectToMove = ({ objectName }) => {
+  const [isPointerOver, setIsPointerOver] = useState(false);
   const objectRef = useRef();
   const [cursor, setCursor] = useState("default");
 
   const handlePointerOver = () => {
+    setIsPointerOver(true);
     setCursor("pointer");
   };
 
   const handlePointerOut = () => {
+    setIsPointerOver(false);
     setCursor("default");
   };
 
   return (
     <div
       id="container3D"
-      style={{ width: "100%", height: "100vh", cursor: cursor }}
+      style={{
+        width: "100%",
+        height: "100vh",
+        cursor: isPointerOver ? "pointer" : "default",
+      }}
     >
       <Canvas
         style={{ width: "100%", height: "100%" }}
@@ -35,12 +42,12 @@ export const CanvasForObjectToMove = ({ objectName }) => {
           onPointerOut={handlePointerOut}
         />
         <OrbitControls
+          ref={objectRef}
+          enabled={isPointerOver}
           enableZoom={true}
           enablePan={false}
-          enableRotate={true} // Enable rotation for OrbitControls
           enableDamping={true}
           dampingFactor={0.1}
-          args={[objectRef.current]}
         />
       </Canvas>
     </div>

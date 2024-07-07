@@ -9,6 +9,7 @@ export const Banner = () => {
   return (
     <section className="banner" id="home">
       <Container>
+      <img src={`${process.env.PUBLIC_URL}/sdv-LOGO-03.svg`} alt="Logo" className="aligh-items-center" />
         <Row className="aligh-items-center">
           <Col xs={12} md={6} xl={6}>
             <TrackVisibility>

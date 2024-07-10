@@ -4,12 +4,15 @@ import "animate.css";
 import TrackVisibility from "react-on-screen";
 import { CanvasForObjectToMove } from "./CanvasForObjectToMove.js";
 import { TypeAnimation } from "react-type-animation";
+import { Parallax } from "react-scroll-parallax";
 
 export const Banner = () => {
   return (
     <section className="banner" id="home">
+      <Parallax y={[-30, 30]}>
+          <img src={`${process.env.PUBLIC_URL}/sdv-LOGO-03.svg`} alt="Logo" />
+        </Parallax>
       <Container>
-      <img src={`${process.env.PUBLIC_URL}/sdv-LOGO-03.svg`} alt="Logo" className="aligh-items-center" />
         <Row className="aligh-items-center">
           <Col xs={12} md={6} xl={6}>
             <TrackVisibility>

@@ -2,9 +2,13 @@ import { Container, Row, Col } from "react-bootstrap";
 import { ArrowRightCircle } from "react-bootstrap-icons";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
-import { CanvasForObjectToMove } from "./CanvasForObjectToMove.js";
+import { extend } from '@react-three/fiber';
+import { OrbitControls, TransformControls } from 'three-stdlib';
+import { ModelScene } from "./ModelScene.js";
 import { TypeAnimation } from "react-type-animation";
 import { Parallax } from "react-scroll-parallax";
+
+extend({ OrbitControls, TransformControls })
 
 export const Banner = () => {
   return (
@@ -63,18 +67,18 @@ export const Banner = () => {
             </TrackVisibility>
           </Col>
           <Col xs={12} md={6} xl={6}>
-            <TrackVisibility>
+            {/* <TrackVisibility>
               {({ isVisible }) => (
                 <div
                   className={
                     isVisible ? "animate__animated animate__zoomIn" : ""
                   }
-                  style={{ width: "100%", height: "100%" }}
-                >
-                  <CanvasForObjectToMove objectName="cube" />
-                </div>
+                  style={{height: "100vh" }}
+                > */}
+                  <ModelScene />
+                {/* </div>
               )}
-            </TrackVisibility>
+            </TrackVisibility> */}
           </Col>
         </Row>
       </Container>

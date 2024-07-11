@@ -2,20 +2,20 @@ import { Container, Row, Col } from "react-bootstrap";
 import { ArrowRightCircle } from "react-bootstrap-icons";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
-import { extend } from '@react-three/fiber';
-import { OrbitControls, TransformControls } from 'three-stdlib';
+import { extend } from "@react-three/fiber";
+import { OrbitControls, TransformControls } from "three-stdlib";
 import { ModelScene } from "./ModelScene.js";
 import { TypeAnimation } from "react-type-animation";
 import { Parallax } from "react-scroll-parallax";
 
-extend({ OrbitControls, TransformControls })
+extend({ OrbitControls, TransformControls });
 
 export const Banner = () => {
   return (
     <section className="banner" id="home">
       <Parallax y={[-30, 30]}>
-          <img src={`${process.env.PUBLIC_URL}/sdv-LOGO-03.svg`} alt="Logo" />
-        </Parallax>
+        <img src={`${process.env.PUBLIC_URL}/sdv-LOGO-03.svg`} alt="Logo" />
+      </Parallax>
       <Container>
         <Row className="aligh-items-center">
           <Col xs={12} md={6} xl={6}>
@@ -57,7 +57,7 @@ export const Banner = () => {
                     printer took a galley of type and scrambled it to make a
                     type specimen book.
                   </p>
-                  <a href="#connect">
+                  <a href="#connect" id="connect-arrow">
                     <button onClick={() => console.log("connect")}>
                       Let’s Connect <ArrowRightCircle size={25} />
                     </button>
@@ -67,18 +67,18 @@ export const Banner = () => {
             </TrackVisibility>
           </Col>
           <Col xs={12} md={6} xl={6}>
-            {/* <TrackVisibility>
+            <TrackVisibility>
               {({ isVisible }) => (
                 <div
                   className={
                     isVisible ? "animate__animated animate__zoomIn" : ""
                   }
-                  style={{height: "100vh" }}
-                > */}
+                  style={{ height: "100vh" }}
+                >
                   <ModelScene />
-                {/* </div>
+                </div>
               )}
-            </TrackVisibility> */}
+            </TrackVisibility>
           </Col>
         </Row>
       </Container>

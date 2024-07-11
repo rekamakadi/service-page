@@ -1,6 +1,6 @@
 import React, { useRef, useState, useContext } from "react";
 import { useFrame } from "@react-three/fiber";
-import { ModelSceneContext } from '../context/ModelSceneContext';
+import { ModelSceneContext } from "../context/ModelSceneContext";
 
 const ModelToMove = ({ modelName, setHovering }) => {
   const modelRef = useRef();
@@ -11,8 +11,8 @@ const ModelToMove = ({ modelName, setHovering }) => {
 
   useFrame(() => {
     if (modelRef.current) {
-      modelRef.current.rotation.y += (rotationSpeed?.y || defaultRotationSpeed.y);
-      modelRef.current.rotation.x += (rotationSpeed?.x || defaultRotationSpeed.x);
+      modelRef.current.rotation.y += rotationSpeed?.y || defaultRotationSpeed.y;
+      modelRef.current.rotation.x += rotationSpeed?.x || defaultRotationSpeed.x;
     }
   });
 
@@ -36,6 +36,6 @@ const ModelToMove = ({ modelName, setHovering }) => {
       onPointerOut={handlePointerOut}
     />
   );
-}
+};
 
 export default ModelToMove;

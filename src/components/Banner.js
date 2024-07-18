@@ -13,9 +13,9 @@ extend({ OrbitControls, TransformControls });
 export const Banner = () => {
   return (
     <section className="banner" id="home">
-      <Parallax y={[-30, 30]}>
+      {/* <Parallax y={[-30, 30]}>
         <img src={`${process.env.PUBLIC_URL}/sdv-LOGO-03.svg`} alt="Logo" />
-      </Parallax>
+      </Parallax> */}
       <Container>
         <Row className="aligh-items-center">
           <Col xs={12} md={6} xl={6}>

@@ -14,6 +14,7 @@ export const ModelScene = () => {
     fov: 75,
   });
   const [rotationSpeed, setRotationSpeed] = useState(null);
+  const [cursor, setCursor] = useState("auto");
 
   return (
     <ModelSceneContext.Provider
@@ -24,7 +25,7 @@ export const ModelScene = () => {
         setRotationSpeed,
       }}
     >
-      <div style={{ position: "relative", height: "100vh" }}>
+      <div style={{ position: "relative", height: "100vh", cursor }}>
         <Canvas style={{ background: "#121212" }}>
           <PerspectiveCamera makeDefault {...cameraSettings} />
           <Lights />
@@ -37,7 +38,7 @@ export const ModelScene = () => {
             fallback={<mesh style={{ color: "white" }}>Loading...</mesh>}
           >
             {selected && (
-              <ModelToMove modelName={selected} setHovering={setHovering} />
+              <ModelToMove modelName={selected} setHovering={setHovering} setCursor={setCursor} />
             )}
           </Suspense>
         </Canvas>

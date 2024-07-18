@@ -2,11 +2,10 @@ import React, { useRef, useState, useContext } from "react";
 import { useFrame } from "@react-three/fiber";
 import { ModelSceneContext } from "../context/ModelSceneContext";
 
-const ModelToMove = ({ modelName, setHovering }) => {
+const ModelToMove = ({ modelName, setHovering, setCursor }) => {
   const modelRef = useRef();
   const { rotationSpeed } = useContext(ModelSceneContext);
   const defaultRotationSpeed = { x: 0.002, y: 0.002 };
-  const [cursor, setCursor] = useState("default");
   let hoverTimeout = null;
 
   useFrame(() => {

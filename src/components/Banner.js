@@ -26,9 +26,6 @@ export const Banner = () => {
                     isVisible ? "animate__animated animate__fadeIn" : ""
                   }
                 >
-                  <span className="tagline">
-                    Your digital dreams, designed and delivered.
-                  </span>
                   <h1>{`Hey, we are 
                   Sphere Dice Visuals`}</h1>
 
@@ -51,12 +48,12 @@ export const Banner = () => {
                   </h2>
                   <br />
                   <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry's
-                    standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a
-                    type specimen book.
+                  We specialize in bringing your digital dreams to life through stunning animations, captivating product visualizations, innovative branding, and web development. Our expertise extends to crafting engaging explainer videos, video editing, creating impactful social media assets, and much more.
                   </p>
+                  <br />
+                  <span className="tagline">
+                    Your digital dreams, designed and delivered.
+                  </span>
                   <a href="#connect" id="connect-arrow">
                     <button onClick={() => console.log("connect")}>
                       Let’s Connect <ArrowRightCircle size={25} />

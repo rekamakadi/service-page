@@ -1,5 +1,4 @@
 import { Container, Row, Col } from "react-bootstrap";
-import { ArrowRightCircle } from "react-bootstrap-icons";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
 import { extend } from "@react-three/fiber";
@@ -26,10 +25,14 @@ export const Banner = () => {
                     isVisible ? "animate__animated animate__fadeIn" : ""
                   }
                 >
-                  <h1>{`Hey, we are 
-                  Sphere Dice Visuals`}</h1>
-
-                  <h2>
+                  <h1>{`Welcome, We are 
+                  SphereDiceVisuals`}</h1>
+                  <br />
+                  <span className="tagline">
+                    <h2>Your digital dreams, designed and delivered.</h2>
+                  </span>
+                  <br />
+                  <h3>
                     <TypeAnimation
                       sequence={[
                         "Animation",
@@ -45,20 +48,11 @@ export const Banner = () => {
                       repeat={Infinity}
                       className="font-bold italic"
                     />
-                  </h2>
+                  </h3>
                   <br />
                   <p>
                   We specialize in bringing your digital dreams to life through stunning animations, captivating product visualizations, innovative branding, and web development. Our expertise extends to crafting engaging explainer videos, video editing, creating impactful social media assets, and much more.
                   </p>
-                  <br />
-                  <span className="tagline">
-                    Your digital dreams, designed and delivered.
-                  </span>
-                  <a href="#connect" id="connect-arrow">
-                    <button onClick={() => console.log("connect")}>
-                      Let’s Connect <ArrowRightCircle size={25} />
-                    </button>
-                  </a>
                 </div>
               )}
             </TrackVisibility>

@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/service-page/static/css/main.70cd7472.css",
-    "main.js": "/service-page/static/js/main.9469b602.js",
+    "main.js": "/service-page/static/js/main.370120bd.js",
     "static/js/453.0c6c5db4.chunk.js": "/service-page/static/js/453.0c6c5db4.chunk.js",
     "static/media/revicons.eot": "/service-page/static/media/revicons.a77de540a38981833f9e.eot",
     "static/media/revicons.ttf": "/service-page/static/media/revicons.57fd05d4ae650374c8de.ttf",
@@ -11,11 +11,11 @@
     "static/media/nav-icon1.svg": "/service-page/static/media/nav-icon1.721d5414c26365f117e71d46b6641cb2.svg",
     "static/media/nav-icon2.svg": "/service-page/static/media/nav-icon2.178f497aa17b70c42df2a1a8c926ed01.svg",
     "main.70cd7472.css.map": "/service-page/static/css/main.70cd7472.css.map",
-    "main.9469b602.js.map": "/service-page/static/js/main.9469b602.js.map",
+    "main.370120bd.js.map": "/service-page/static/js/main.370120bd.js.map",
     "453.0c6c5db4.chunk.js.map": "/service-page/static/js/453.0c6c5db4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.70cd7472.css",
-    "static/js/main.9469b602.js"
+    "static/js/main.370120bd.js"
   ]
 }

@@ -26,7 +26,7 @@ export const Banner = () => {
                   }
                 >
                   <h1>{`Welcome, We are 
-                  SphereDiceVisuals`}</h1>
+                  Sphere Dice Visuals`}</h1>
                   <br />
                   <span className="tagline">
                     <h2>Your digital dreams, designed and delivered.</h2>

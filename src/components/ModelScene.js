@@ -25,12 +25,12 @@ export const ModelScene = React.memo(() => {
     [setCursor, setHovering]
   );
 
-  // const handleDrag = useCallback(
-  //   (isDragging) => {
-  //     setDragging(isDragging);
-  //   },
-  //   [setDragging]
-  // );
+  const handleDrag = useCallback(
+    (isDragging) => {
+      setDragging(isDragging);
+    },
+    [setDragging]
+  );
 
   return (
     <ModelSceneContext.Provider
@@ -39,8 +39,8 @@ export const ModelScene = React.memo(() => {
         setCameraSettings,
         rotationSpeed,
         setRotationSpeed,
-        // dragging,
-        // handleDrag,
+        dragging,
+        handleDrag,
       }}
     >
       <div style={{ position: "relative", height: "100vh", cursor }}>
@@ -48,7 +48,7 @@ export const ModelScene = React.memo(() => {
           <PerspectiveCamera makeDefault {...cameraSettings} />
           <Lights />
           <OrbitControls
-            enabled={hovering}
+            enabled={hovering || dragging}
             maxPolarAngle={Math.PI}
             minPolarAngle={0}
           />
@@ -56,7 +56,11 @@ export const ModelScene = React.memo(() => {
             fallback={<mesh style={{ color: "white" }}>Loading...</mesh>}
           >
             {selected && (
-              <ModelToMove modelName={selected} handleHover={handleHover} />
+              <ModelToMove
+                modelName={selected}
+                handleHover={handleHover}
+                handleDrag={handleDrag}
+              />
             )}
           </Suspense>
         </Canvas>

@@ -1,16 +1,21 @@
-import React, { useRef, useState, useContext, useCallback } from "react";
+import React, {
+  useRef,
+  useState,
+  useContext,
+  useCallback,
+  // useEffect,
+} from "react";
 import { useFrame } from "@react-three/fiber";
 import { ModelSceneContext } from "../context/ModelSceneContext";
 
-const ModelToMove = ({ modelName, handleHover }) => {
+const ModelToMove = ({ modelName, handleHover, handleDrag }) => {
   const modelRef = useRef();
-  const { rotationSpeed, /*dragging, handleDrag*/ } = useContext(ModelSceneContext);
-  const defaultRotationSpeed = { x: 0.002, y: 0.002 };
-  // let hoverTimeout = null;
-  // const [isDragging, setIsDragging] = useState(false);
+  const { rotationSpeed } = useContext(ModelSceneContext);
+  const defaultRotationSpeed = { x: 0.005, y: 0.005 };
+  const [isDragging, setIsDragging] = useState(false);
 
   useFrame(() => {
-    if (modelRef.current /*&& !isDragging*/) {
+    if (modelRef.current && !isDragging) {
       modelRef.current.rotation.y += rotationSpeed?.y || defaultRotationSpeed.y;
       modelRef.current.rotation.x += rotationSpeed?.x || defaultRotationSpeed.x;
     }
@@ -19,26 +24,44 @@ const ModelToMove = ({ modelName, handleHover }) => {
   const handlePointerOver = useCallback(
     (event) => {
       event.stopPropagation();
-      // clearTimeout(hoverTimeout);
       handleHover(true);
     },
     [handleHover]
   );
 
   const handlePointerOut = useCallback(() => {
-    // hoverTimeout = setTimeout(() => setHovering(false), 1000); // Delay before disabling OrbitControls
     handleHover(false);
   }, [handleHover]);
 
-  // const handlePointerDown = useCallback(() => {
-  //   setIsDragging(true);
-  //   handleDrag(true);
-  // }, [handleDrag]);
+  const handlePointerDown = useCallback(
+    (event) => {
+      event.stopPropagation();
+      setIsDragging(true);
+      handleDrag(true);
+    },
+    [handleDrag]
+  );
 
-  // const handlePointerUp = useCallback(() => {
-  //   setIsDragging(false);
-  //   handleDrag(false);
-  // }, [handleDrag]);
+  const handlePointerUp = useCallback(() => {
+    setIsDragging(false);
+    handleDrag(false);
+  }, [handleDrag]);
+
+  // const handleDocumentPointerUp = useCallback(() => {
+  //   handlePointerUp();
+  // }, [handlePointerUp]);
+
+  // useEffect(() => {
+  //   if (isDragging) {
+  //     document.addEventListener("pointerUp", handleDocumentPointerUp);
+  //   } else {
+  //     document.removeEventListener("pointerUp", handleDocumentPointerUp);
+  //   }
+
+  //   return () => {
+  //     document.removeEventListener("pointerUp", handleDocumentPointerUp);
+  //   };
+  // }, [isDragging, handleDocumentPointerUp]);
 
   return (
     <primitive
@@ -46,8 +69,8 @@ const ModelToMove = ({ modelName, handleHover }) => {
       ref={modelRef}
       onPointerOver={handlePointerOver}
       onPointerOut={handlePointerOut}
-      // onPointerDown={handlePointerDown}
-      // onPointerUp={handlePointerUp}
+      onPointerDown={handlePointerDown}
+      onPointerUp={handlePointerUp}
     />
   );
 };

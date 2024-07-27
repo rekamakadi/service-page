@@ -1,11 +1,17 @@
-import React, { useState, startTransition, useEffect, useContext } from "react";
+import React, {
+  useState,
+  startTransition,
+  useEffect,
+  useContext,
+  useCallback,
+} from "react";
 import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import ArrowIcon from "./ArrowIcon";
 import models from "../modelConfig";
 import { ModelSceneContext } from "../context/ModelSceneContext";
 
-function ModelSwitcher() {
+const ModelSwitcher = React.memo(() => {
   const { setSelected, setRotationSpeed, setCameraSettings } =
     useContext(ModelSceneContext);
   const [currentModelIndex, setCurrentModelIndex] = useState(0);
@@ -28,11 +34,11 @@ function ModelSwitcher() {
     currentModelIndex,
   ]);
 
-  const handleSwitch = () => {
+  const handleSwitch = useCallback(() => {
     startTransition(() => {
       setCurrentModelIndex((prevIndex) => (prevIndex + 1) % models.length);
     });
-  };
+  }, []);
 
   return (
     <button
@@ -58,6 +64,6 @@ function ModelSwitcher() {
       <ArrowIcon />
     </button>
   );
-}
+});
 
 export default ModelSwitcher;

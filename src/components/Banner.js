@@ -1,3 +1,4 @@
+import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
@@ -9,7 +10,7 @@ import { Parallax } from "react-scroll-parallax";
 
 extend({ OrbitControls, TransformControls });
 
-export const Banner = () => {
+export const Banner = React.memo(() => {
   return (
     <section className="banner" id="home">
       {/* <Parallax y={[-30, 30]}>
@@ -51,7 +52,12 @@ export const Banner = () => {
                   </h3>
                   <br />
                   <p>
-                  We specialize in bringing your digital dreams to life through stunning animations, captivating product visualizations, innovative branding, and web development. Our expertise extends to crafting engaging explainer videos, video editing, creating impactful social media assets, and much more.
+                    We specialize in bringing your digital dreams to life
+                    through stunning animations, captivating product
+                    visualizations, innovative branding, and web development.
+                    Our expertise extends to crafting engaging explainer videos,
+                    video editing, creating impactful social media assets, and
+                    much more.
                   </p>
                 </div>
               )}
@@ -75,4 +81,4 @@ export const Banner = () => {
       </Container>
     </section>
   );
-};
+});

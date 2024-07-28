@@ -42,10 +42,10 @@ const ModelToMove = ({ modelName, handleHover, handleDrag }) => {
   const handlePointerDown = useCallback(
     (event) => {
       event.stopPropagation();
-      if (isHovering || event.type === 'touchstart') {
+      if (isHovering || event.type === "touchstart") {
         setIsDragging(true);
         handleDrag(true);
-        if (event.type === 'touchstart') {
+        if (event.type === "touchstart") {
           const touch = event.touches[0];
           setLastTouchPosition({ x: touch.clientX, y: touch.clientY });
         }
@@ -69,7 +69,7 @@ const ModelToMove = ({ modelName, handleHover, handleDrag }) => {
         const { movementX, movementY } = event;
         modelRef.current.rotation.y += movementX * 0.01;
         modelRef.current.rotation.x += movementY * 0.01;
-      } else if (event.type === 'touchmove') {
+      } else if (event.type === "touchmove" && event.touches.length === 1) {
         const touch = event.touches[0];
         const deltaX = touch.clientX - lastTouchPosition.x;
         const deltaY = touch.clientY - lastTouchPosition.y;
@@ -85,20 +85,20 @@ const ModelToMove = ({ modelName, handleHover, handleDrag }) => {
     if (isDragging) {
       document.addEventListener("mousemove", handlePointerMove);
       document.addEventListener("mouseup", handlePointerUp);
-      document.addEventListener('touchmove', handlePointerMove);
-      document.addEventListener('touchend', handlePointerUp);
+      document.addEventListener("touchmove", handlePointerMove);
+      document.addEventListener("touchend", handlePointerUp);
     } else {
       document.removeEventListener("mousemove", handlePointerMove);
       document.removeEventListener("mouseup", handlePointerUp);
-      document.removeEventListener('touchmove', handlePointerMove);
-      document.removeEventListener('touchend', handlePointerUp);
+      document.removeEventListener("touchmove", handlePointerMove);
+      document.removeEventListener("touchend", handlePointerUp);
     }
 
     return () => {
       document.removeEventListener("mousemove", handlePointerMove);
       document.removeEventListener("mouseup", handlePointerUp);
-      document.removeEventListener('touchmove', handlePointerMove);
-      document.removeEventListener('touchend', handlePointerUp);
+      document.removeEventListener("touchmove", handlePointerMove);
+      document.removeEventListener("touchend", handlePointerUp);
     };
   }, [isDragging, handlePointerMove, handlePointerUp]);
 

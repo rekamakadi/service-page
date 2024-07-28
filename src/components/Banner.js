@@ -51,7 +51,7 @@ export const Banner = React.memo(() => {
                     />
                   </h3>
                   <br />
-                  <p>
+                  <p className="d-none d-lg-block">
                     We specialize in bringing your digital dreams to life
                     through stunning animations, captivating product
                     visualizations, innovative branding, and web development.
@@ -73,6 +73,17 @@ export const Banner = React.memo(() => {
                   style={{ height: "100vh" }}
                 >
                   <ModelScene />
+                </div>
+              )}
+            </TrackVisibility>
+          </Col>
+          <Col xs={12} className="d-lg-none">
+            <TrackVisibility>
+              {({ isVisible }) => (
+                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                  <p>
+                    We specialize in bringing your digital dreams to life through stunning animations, captivating product visualizations, innovative branding, and web development. Our expertise extends to crafting engaging explainer videos, video editing, creating impactful social media assets, and much more.
+                  </p>
                 </div>
               )}
             </TrackVisibility>

@@ -7,6 +7,8 @@ import ModelToMove from "./ModelToMove";
 import { ModelSceneContext } from "../context/ModelSceneContext";
 
 export const ModelScene = React.memo(() => {
+  const [hovering, setHovering] = useState(false);
+  const [dragging, setDragging] = useState(false);
   const [selected, setSelected] = useState(null);
   const [cameraSettings, setCameraSettings] = useState({
     position: [0, 0, 5],
@@ -18,15 +20,17 @@ export const ModelScene = React.memo(() => {
   const handleHover = useCallback(
     (isHovering) => {
       setCursor(isHovering ? "pointer" : "auto");
+      setHovering(isHovering);
     },
-    [setCursor]
+    [setCursor, setHovering]
   );
 
   const handleDrag = useCallback(
     (isDragging) => {
       setCursor(isDragging ? "grabbing" : "auto");
+      setDragging(isDragging);
     },
-    [setCursor]
+    [setCursor, setDragging]
   );
 
   return (
@@ -36,6 +40,8 @@ export const ModelScene = React.memo(() => {
         setCameraSettings,
         rotationSpeed,
         setRotationSpeed,
+        dragging,
+        handleDrag,
       }}
     >
       <div style={{ position: "relative", height: "100vh", cursor }}>
@@ -43,7 +49,7 @@ export const ModelScene = React.memo(() => {
           <PerspectiveCamera makeDefault {...cameraSettings} />
           <Lights />
           <OrbitControls
-            enabled={cursor === "grabbing"}
+            enabled={hovering || dragging}
             maxPolarAngle={Math.PI}
             minPolarAngle={0}
           />

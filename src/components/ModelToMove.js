@@ -66,16 +66,18 @@ const ModelToMove = ({ modelName, handleHover, handleDrag }) => {
   const handlePointerMove = useCallback(
     (event) => {
       if (isDragging && modelRef.current) {
-        const { movementX, movementY } = event;
-        modelRef.current.rotation.y += movementX * 0.01;
-        modelRef.current.rotation.x += movementY * 0.01;
-      } else if (event.type === "touchmove" && event.touches.length === 1) {
-        const touch = event.touches[0];
-        const deltaX = touch.clientX - lastTouchPosition.x;
-        const deltaY = touch.clientY - lastTouchPosition.y;
-        modelRef.current.rotation.y += deltaX * 0.01;
-        modelRef.current.rotation.x += deltaY * 0.01;
-        setLastTouchPosition({ x: touch.clientX, y: touch.clientY });
+        if (event.type === "mousemove") {
+          const { movementX, movementY } = event;
+          modelRef.current.rotation.y -= movementX * 0.01;
+          modelRef.current.rotation.x -= movementY * 0.01;
+        } else if (event.type === "touchmove" && event.touches.length === 1) {
+          const touch = event.touches[0];
+          const deltaX = touch.clientX - lastTouchPosition.x;
+          const deltaY = touch.clientY - lastTouchPosition.y;
+          modelRef.current.rotation.y -= deltaX * 0.01;
+          modelRef.current.rotation.x -= deltaY * 0.01;
+          setLastTouchPosition({ x: touch.clientX, y: touch.clientY });
+        }
       }
     },
     [isDragging, lastTouchPosition]
@@ -85,7 +87,9 @@ const ModelToMove = ({ modelName, handleHover, handleDrag }) => {
     if (isDragging) {
       document.addEventListener("mousemove", handlePointerMove);
       document.addEventListener("mouseup", handlePointerUp);
-      document.addEventListener("touchmove", handlePointerMove);
+      document.addEventListener("touchmove", handlePointerMove, {
+        passive: false,
+      });
       document.addEventListener("touchend", handlePointerUp);
     } else {
       document.removeEventListener("mousemove", handlePointerMove);
@@ -110,10 +114,8 @@ const ModelToMove = ({ modelName, handleHover, handleDrag }) => {
       onPointerOut={handlePointerOut}
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerUp}
-      onPointerMove={handlePointerMove}
       onTouchStart={handlePointerDown}
       onTouchEnd={handlePointerUp}
-      onTouchMove={handlePointerMove}
     />
   );
 };

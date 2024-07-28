@@ -110,8 +110,10 @@ const ModelToMove = ({ modelName, handleHover, handleDrag }) => {
       onPointerOut={handlePointerOut}
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerUp}
+      onPointerMove={handlePointerMove}
       onTouchStart={handlePointerDown}
       onTouchEnd={handlePointerUp}
+      onTouchMove={handlePointerMove}
     />
   );
 };

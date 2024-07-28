@@ -14,6 +14,7 @@ const ModelToMove = ({ modelName, handleHover, handleDrag }) => {
   const defaultRotationSpeed = { x: 0.005, y: 0.005 };
   const [isDragging, setIsDragging] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
+  const [lastTouchPosition, setLastTouchPosition] = useState({ x: 0, y: 0 });
 
   useFrame(() => {
     if (modelRef.current && !isDragging) {
@@ -41,9 +42,13 @@ const ModelToMove = ({ modelName, handleHover, handleDrag }) => {
   const handlePointerDown = useCallback(
     (event) => {
       event.stopPropagation();
-      if (isHovering) {
+      if (isHovering || event.type === 'touchstart') {
         setIsDragging(true);
         handleDrag(true);
+        if (event.type === 'touchstart') {
+          const touch = event.touches[0];
+          setLastTouchPosition({ x: touch.clientX, y: touch.clientY });
+        }
       }
     },
     [isHovering, handleDrag]
@@ -62,42 +67,40 @@ const ModelToMove = ({ modelName, handleHover, handleDrag }) => {
     (event) => {
       if (isDragging && modelRef.current) {
         const { movementX, movementY } = event;
-        modelRef.current.rotation.y -= movementX * 0.01;
+        modelRef.current.rotation.y += movementX * 0.01;
         modelRef.current.rotation.x += movementY * 0.01;
+      } else if (event.type === 'touchmove') {
+        const touch = event.touches[0];
+        const deltaX = touch.clientX - lastTouchPosition.x;
+        const deltaY = touch.clientY - lastTouchPosition.y;
+        modelRef.current.rotation.y += deltaX * 0.01;
+        modelRef.current.rotation.x += deltaY * 0.01;
+        setLastTouchPosition({ x: touch.clientX, y: touch.clientY });
       }
     },
-    [isDragging]
+    [isDragging, lastTouchPosition]
   );
-
-  const handleTouchMove = useCallback((event) => {
-    if (isDragging && modelRef.current && event.touches.length === 1) {
-      const touch = event.touches[0];
-      const { movementX, movementY } = touch;
-      modelRef.current.rotation.y -= movementX * 0.01;
-      modelRef.current.rotation.x += movementY * 0.01;
-    }
-  }, [isDragging]);
 
   useEffect(() => {
     if (isDragging) {
-      document.addEventListener("pointermove", handlePointerMove);
-      document.addEventListener("pointerup", handlePointerUp);
-      document.addEventListener('touchmove', handleTouchMove);
+      document.addEventListener("mousemove", handlePointerMove);
+      document.addEventListener("mouseup", handlePointerUp);
+      document.addEventListener('touchmove', handlePointerMove);
       document.addEventListener('touchend', handlePointerUp);
     } else {
-      document.removeEventListener("pointermove", handlePointerMove);
-      document.removeEventListener("pointerup", handlePointerUp);
-      document.removeEventListener('touchmove', handleTouchMove);
+      document.removeEventListener("mousemove", handlePointerMove);
+      document.removeEventListener("mouseup", handlePointerUp);
+      document.removeEventListener('touchmove', handlePointerMove);
       document.removeEventListener('touchend', handlePointerUp);
     }
 
     return () => {
-      document.removeEventListener("pointermove", handlePointerMove);
-      document.removeEventListener("pointerup", handlePointerUp);
-      document.removeEventListener('touchmove', handleTouchMove);
+      document.removeEventListener("mousemove", handlePointerMove);
+      document.removeEventListener("mouseup", handlePointerUp);
+      document.removeEventListener('touchmove', handlePointerMove);
       document.removeEventListener('touchend', handlePointerUp);
     };
-  }, [isDragging, handlePointerMove, handlePointerUp, handleTouchMove]);
+  }, [isDragging, handlePointerMove, handlePointerUp]);
 
   return (
     <primitive
@@ -107,7 +110,6 @@ const ModelToMove = ({ modelName, handleHover, handleDrag }) => {
       onPointerOut={handlePointerOut}
       onPointerDown={handlePointerDown}
       onPointerUp={handlePointerUp}
-      onPointerMove={handlePointerMove}
       onTouchStart={handlePointerDown}
       onTouchEnd={handlePointerUp}
     />

@@ -7,11 +7,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
-import { ParallaxProvider } from "react-scroll-parallax";
+// import { ParallaxProvider } from "react-scroll-parallax";
 
 function App() {
   return (
-    <ParallaxProvider>
+    // <ParallaxProvider>
       <div className="App">
         <NavBar />
         <Suspense fallback={<div>Loading...</div>}>
@@ -22,7 +22,7 @@ function App() {
           <Footer />
         </Suspense>
       </div>
-    </ParallaxProvider>
+    // </ParallaxProvider>
   );
 }
 

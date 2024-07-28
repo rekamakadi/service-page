@@ -6,7 +6,7 @@ import { extend } from "@react-three/fiber";
 import { OrbitControls, TransformControls } from "three-stdlib";
 import { ModelScene } from "./ModelScene.js";
 import { TypeAnimation } from "react-type-animation";
-import { Parallax } from "react-scroll-parallax";
+// import { Parallax } from "react-scroll-parallax";
 
 extend({ OrbitControls, TransformControls });
 

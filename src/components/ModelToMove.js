@@ -48,6 +48,9 @@ const ModelToMove = ({ modelName, handleHover, handleDrag }) => {
         if (event.type === "touchstart") {
           const touch = event.touches[0];
           setLastTouchPosition({ x: touch.clientX, y: touch.clientY });
+          console.log("Touch start:", touch.clientX, touch.clientY);
+        } else {
+          console.log("Mouse down");
         }
       }
     },
@@ -59,6 +62,7 @@ const ModelToMove = ({ modelName, handleHover, handleDrag }) => {
       event.stopPropagation();
       setIsDragging(false);
       handleDrag(false);
+      console.log("Pointer up");
     },
     [handleDrag]
   );
@@ -70,6 +74,7 @@ const ModelToMove = ({ modelName, handleHover, handleDrag }) => {
           const { movementX, movementY } = event;
           modelRef.current.rotation.y -= movementX * 0.01;
           modelRef.current.rotation.x -= movementY * 0.01;
+          console.log("Mouse move:", movementX, movementY);
         } else if (event.type === "touchmove" && event.touches.length === 1) {
           const touch = event.touches[0];
           const deltaX = touch.clientX - lastTouchPosition.x;
@@ -77,6 +82,7 @@ const ModelToMove = ({ modelName, handleHover, handleDrag }) => {
           modelRef.current.rotation.y -= deltaX * 0.01;
           modelRef.current.rotation.x -= deltaY * 0.01;
           setLastTouchPosition({ x: touch.clientX, y: touch.clientY });
+          console.log("Touch move:", deltaX, deltaY);
           event.preventDefault();
         }
       }

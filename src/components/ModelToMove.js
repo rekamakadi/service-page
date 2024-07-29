@@ -77,6 +77,7 @@ const ModelToMove = ({ modelName, handleHover, handleDrag }) => {
           modelRef.current.rotation.y -= deltaX * 0.01;
           modelRef.current.rotation.x -= deltaY * 0.01;
           setLastTouchPosition({ x: touch.clientX, y: touch.clientY });
+          event.preventDefault();
         }
       }
     },

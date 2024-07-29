@@ -44,7 +44,14 @@ export const ModelScene = React.memo(() => {
         handleDrag,
       }}
     >
-      <div style={{ position: "relative", height: "100vh", cursor }}>
+      <div
+        style={{
+          position: "relative",
+          height: "100vh",
+          cursor,
+          touchAction: "none",
+        }}
+      >
         <Canvas style={{ background: "#121212" }}>
           <PerspectiveCamera makeDefault {...cameraSettings} />
           <Lights />

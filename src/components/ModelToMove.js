@@ -13,8 +13,7 @@ const ModelToMove = ({ modelName, handleHover, handleDrag }) => {
   const { rotationSpeed } = useContext(ModelSceneContext);
   const defaultRotationSpeed = { x: 0.005, y: 0.005 };
   const [isDragging, setIsDragging] = useState(false);
-  const [isHovering, setIsHovering] = useState(false);
-  const [lastTouchPosition, setLastTouchPosition] = useState({ x: 0, y: 0 });
+  const [lastPosition, setLastPosition] = useState({ x: 0, y: 0 });
 
   useFrame(() => {
     if (modelRef.current && !isDragging) {
@@ -26,15 +25,12 @@ const ModelToMove = ({ modelName, handleHover, handleDrag }) => {
   const handlePointerOver = useCallback(
     (event) => {
       event.stopPropagation();
-      setIsHovering(true);
       handleHover(true);
     },
     [handleHover]
   );
 
   const handlePointerOut = useCallback(() => {
-    setIsHovering(false);
-    setIsDragging(false);
     handleHover(false);
     handleDrag(false);
   }, [handleHover, handleDrag]);
@@ -42,16 +38,12 @@ const ModelToMove = ({ modelName, handleHover, handleDrag }) => {
   const handlePointerDown = useCallback(
     (event) => {
       event.stopPropagation();
-      if (isHovering || event.type === "touchstart") {
-        setIsDragging(true);
-        handleDrag(true);
-        if (event.type === "touchstart") {
-          const touch = event.touches[0];
-          setLastTouchPosition({ x: touch.clientX, y: touch.clientY });
-        }
-      }
+      setIsDragging(true);
+      handleDrag(true);
+      const { clientX, clientY } = event.touches ? event.touches[0] : event;
+      setLastPosition({ x: clientX, y: clientY });
     },
-    [isHovering, handleDrag]
+    [handleDrag]
   );
 
   const handlePointerUp = useCallback(
@@ -66,22 +58,20 @@ const ModelToMove = ({ modelName, handleHover, handleDrag }) => {
   const handlePointerMove = useCallback(
     (event) => {
       if (isDragging && modelRef.current) {
-        if (event.type === "mousemove") {
-          const { movementX, movementY } = event;
-          modelRef.current.rotation.y -= movementX * 0.01;
-          modelRef.current.rotation.x -= movementY * 0.01;
-        } else if (event.type === "touchmove" && event.touches.length === 1) {
-          const touch = event.touches[0];
-          const deltaX = touch.clientX - lastTouchPosition.x;
-          const deltaY = touch.clientY - lastTouchPosition.y;
-          modelRef.current.rotation.y -= deltaX * 0.01;
-          modelRef.current.rotation.x -= deltaY * 0.01;
-          setLastTouchPosition({ x: touch.clientX, y: touch.clientY });
+        const { clientX, clientY } = event.touches ? event.touches[0] : event;
+        const deltaX = clientX - lastPosition.x;
+        const deltaY = clientY - lastPosition.y;
+        setLastPosition({ x: clientX, y: clientY });
+
+        modelRef.current.rotation.y += deltaY * 0.01;
+        modelRef.current.rotation.x += deltaX * 0.01;
+
+        if (event.touches) {
           event.preventDefault();
         }
       }
     },
-    [isDragging, lastTouchPosition]
+    [isDragging, lastPosition]
   );
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import React, { useState, Suspense, useCallback } from "react";
+import React, { useState, Suspense, useCallback, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import Lights from "./Lights";
@@ -33,6 +33,20 @@ export const ModelScene = React.memo(() => {
     [setCursor, setDragging]
   );
 
+  useEffect(() => {
+    const handleMouseUp = () => {
+      handleDrag(false);
+    };
+
+    document.addEventListener("mouseup", handleMouseUp);
+    document.addEventListener("touchend", handleMouseUp);
+
+    return () => {
+      document.removeEventListener("mouseup", handleMouseUp);
+      document.removeEventListener("touchend", handleMouseUp);
+    };
+  }, [handleDrag]);
+
   return (
     <ModelSceneContext.Provider
       value={{
@@ -51,6 +65,7 @@ export const ModelScene = React.memo(() => {
           cursor,
           touchAction: "none",
         }}
+        onMouseLeave={() => handleDrag(false)}
       >
         <Canvas style={{ background: "#121212" }}>
           <PerspectiveCamera makeDefault {...cameraSettings} />
@@ -68,6 +83,7 @@ export const ModelScene = React.memo(() => {
                 modelName={selected}
                 handleHover={handleHover}
                 handleDrag={handleDrag}
+                dragging={dragging}
               />
             )}
           </Suspense>

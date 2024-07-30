@@ -48,8 +48,9 @@ const ModelToMove = ({ modelName, handleHover, handleDrag, dragging }) => {
     (event) => {
       event.stopPropagation();
       handleDrag(false);
+      handleHover(false);
     },
-    [handleDrag]
+    [handleDrag, handleHover]
   );
 
   const handlePointerMove = useCallback(
@@ -74,20 +75,25 @@ const ModelToMove = ({ modelName, handleHover, handleDrag, dragging }) => {
   useEffect(() => {
     if (dragging) {
       document.addEventListener("mousemove", handlePointerMove);
-      document.addEventListener("touchmove", handlePointerMove, {
-        passive: false,
-      });
+      document.addEventListener("mouseup", handlePointerUp);
+      document.addEventListener("touchmove", handlePointerMove, { passive: false });
+      document.addEventListener("touchend", handlePointerUp);
+
     } else {
       document.removeEventListener("mousemove", handlePointerMove);
+      document.removeEventListener("mouseup", handlePointerUp);
       document.removeEventListener("touchmove", handlePointerMove);
+      document.removeEventListener("touchend", handlePointerUp);
     }
 
     return () => {
       document.removeEventListener("mousemove", handlePointerMove);
+      document.removeEventListener("mouseup", handlePointerUp);
       document.removeEventListener("touchmove", handlePointerMove);
+      document.removeEventListener("touchend", handlePointerUp);
     };
-  }, [dragging, handlePointerMove]);
-
+  }, [dragging, handlePointerMove, handlePointerUp]);
+  
   return (
     <primitive
       object={modelName}
@@ -98,6 +104,7 @@ const ModelToMove = ({ modelName, handleHover, handleDrag, dragging }) => {
       onPointerUp={handlePointerUp}
       onTouchStart={handlePointerDown}
       onTouchEnd={handlePointerUp}
+      onMouseLeave={handlePointerUp}
     />
   );
 };

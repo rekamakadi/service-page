@@ -33,20 +33,6 @@ export const ModelScene = React.memo(() => {
     [setCursor, setDragging]
   );
 
-  useEffect(() => {
-    const handleMouseUp = () => {
-      handleDrag(false);
-    };
-
-    document.addEventListener("mouseup", handleMouseUp);
-    document.addEventListener("touchend", handleMouseUp);
-
-    return () => {
-      document.removeEventListener("mouseup", handleMouseUp);
-      document.removeEventListener("touchend", handleMouseUp);
-    };
-  }, [handleDrag]);
-
   return (
     <ModelSceneContext.Provider
       value={{
@@ -55,7 +41,7 @@ export const ModelScene = React.memo(() => {
         rotationSpeed,
         setRotationSpeed,
         dragging,
-        handleDrag,
+        handleDrag
       }}
     >
       <div

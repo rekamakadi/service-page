@@ -31,8 +31,7 @@ const ModelToMove = ({ modelName, handleHover, handleDrag, dragging }) => {
 
   const handlePointerOut = useCallback(() => {
     handleHover(false);
-    handleDrag(false);
-  }, [handleHover, handleDrag]);
+  }, [handleHover]);
 
   const handlePointerDown = useCallback(
     (event) => {
@@ -61,8 +60,8 @@ const ModelToMove = ({ modelName, handleHover, handleDrag, dragging }) => {
         const deltaY = clientY - lastPosition.y;
         setLastPosition({ x: clientX, y: clientY });
 
-        modelRef.current.rotation.y -= deltaY * 0.01;
-        modelRef.current.rotation.x -= deltaX * 0.01;
+        modelRef.current.rotation.y += deltaY * 0.01;
+        modelRef.current.rotation.x += deltaX * 0.01;
 
         if (event.touches) {
           event.preventDefault();
@@ -76,9 +75,10 @@ const ModelToMove = ({ modelName, handleHover, handleDrag, dragging }) => {
     if (dragging) {
       document.addEventListener("mousemove", handlePointerMove);
       document.addEventListener("mouseup", handlePointerUp);
-      document.addEventListener("touchmove", handlePointerMove, { passive: false });
+      document.addEventListener("touchmove", handlePointerMove, {
+        passive: false,
+      });
       document.addEventListener("touchend", handlePointerUp);
-
     } else {
       document.removeEventListener("mousemove", handlePointerMove);
       document.removeEventListener("mouseup", handlePointerUp);
@@ -93,7 +93,7 @@ const ModelToMove = ({ modelName, handleHover, handleDrag, dragging }) => {
       document.removeEventListener("touchend", handlePointerUp);
     };
   }, [dragging, handlePointerMove, handlePointerUp]);
-  
+
   return (
     <primitive
       object={modelName}
@@ -104,7 +104,6 @@ const ModelToMove = ({ modelName, handleHover, handleDrag, dragging }) => {
       onPointerUp={handlePointerUp}
       onTouchStart={handlePointerDown}
       onTouchEnd={handlePointerUp}
-      onMouseLeave={handlePointerUp}
     />
   );
 };

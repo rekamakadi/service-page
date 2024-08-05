@@ -16,22 +16,24 @@ export const ModelScene = React.memo(() => {
   });
   const [rotationSpeed, setRotationSpeed] = useState(null);
   const [cursor, setCursor] = useState("auto");
+  const [hoverTimeout, setHoverTimeout] = useState(null);
 
   const handleHover = useCallback(
     (isHovering) => {
       setCursor(isHovering ? "pointer" : "auto");
+      if (!isHovering) {
+        clearTimeout(hoverTimeout);
+        setHoverTimeout(setTimeout(() => setHovering(false), 1000));
+      }
       setHovering(isHovering);
     },
-    [setCursor, setHovering]
+    [hoverTimeout]
   );
 
-  const handleDrag = useCallback(
-    (isDragging) => {
-      setCursor(isDragging ? "grabbing" : "auto");
-      setDragging(isDragging);
-    },
-    [setCursor, setDragging]
-  );
+  const handleDrag = useCallback((isDragging) => {
+    setCursor(isDragging ? "grabbing" : "auto");
+    setDragging(isDragging);
+  }, []);
 
   return (
     <ModelSceneContext.Provider
@@ -41,7 +43,7 @@ export const ModelScene = React.memo(() => {
         rotationSpeed,
         setRotationSpeed,
         dragging,
-        handleDrag
+        handleDrag,
       }}
     >
       <div
@@ -79,3 +81,5 @@ export const ModelScene = React.memo(() => {
     </ModelSceneContext.Provider>
   );
 });
+
+export default ModelScene;

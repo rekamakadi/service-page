@@ -55,9 +55,9 @@ export const Banner = React.memo(() => {
                     We specialize in bringing your digital dreams to life
                     through stunning animations, captivating product
                     visualizations, innovative branding, and web development.
-                    Our expertise extends to crafting engaging explainer videos,
+                    {/* Our expertise extends to crafting engaging explainer videos,
                     video editing, creating impactful social media assets, and
-                    much more.
+                    much more. */}
                   </p>
                 </div>
               )}

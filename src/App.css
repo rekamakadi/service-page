@@ -1,9 +1,69 @@
 /************ Custom Font ************/
-/* @font-face {
+@font-face {
   font-family: 'MyriadPro';
-  src: url('fonts/MYRIADPRO-BOLD.OTF') format('opentype');
-  font-weight: bold;
-} */
+  src: url('/fonts/MYRIADPRO-BOLD.OTF') format('opentype');
+  font-weight: 700; /* Bold */
+}
+
+@font-face {
+  font-family: 'MyriadPro';
+  src: url('/fonts/MYRIADPRO-BOLDCOND.OTF') format('opentype');
+  font-weight: 700; /* Bold Condensed */
+  font-stretch: condensed;
+}
+
+@font-face {
+  font-family: 'MyriadPro';
+  src: url('/fonts/MYRIADPRO-BOLDCONDIT.OTF') format('opentype');
+  font-weight: 700; /* Bold Condensed Italic */
+  font-stretch: condensed;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'MyriadPro';
+  src: url('/fonts/MYRIADPRO-BOLDIT.OTF') format('opentype');
+  font-weight: 700; /* Bold Italic */
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'MyriadPro';
+  src: url('/fonts/MYRIADPRO-COND.OTF') format('opentype');
+  font-stretch: condensed;
+}
+
+@font-face {
+  font-family: 'MyriadPro';
+  src: url('/fonts/MYRIADPRO-CONDIT.OTF') format('opentype');
+  font-stretch: condensed;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'MyriadPro';
+  src: url('/fonts/MyriadPro-Light.OTF') format('opentype');
+  font-weight: 300; /* Light */
+}
+
+@font-face {
+  font-family: 'MyriadPro';
+  src: url('/fonts/MYRIADPRO-REGULAR.OTF') format('opentype');
+  font-weight: 400; /* Regular */
+}
+
+@font-face {
+  font-family: 'MyriadPro';
+  src: url('/fonts/MYRIADPRO-SEMIBOLD.OTF') format('opentype');
+  font-weight: 600; /* Semi-Bold */
+}
+
+@font-face {
+  font-family: 'MyriadPro';
+  src: url('/fonts/MYRIADPRO-SEMIBOLDIT.OTF') format('opentype');
+  font-weight: 600; /* Semi-Bold Italic */
+  font-style: italic;
+}
 
 
 /************ Default Css ************/
@@ -24,7 +84,7 @@ body {
   position: relative;
   background-color: #0F0F0F !important;
   color: #EFD0DE !important;
-  font-family: 'MyriadPro', bold !important;
+  font-family: 'MyriadPro', sans-serif !important;
 }
 
 h1, h2, h3, h4, h5, h6 {

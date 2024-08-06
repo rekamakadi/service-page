@@ -55,7 +55,7 @@ export const ModelScene = React.memo(() => {
         }}
         onMouseLeave={() => handleDrag(false)}
       >
-        <Canvas style={{ background: "#121212" }}>
+        <Canvas>
           <PerspectiveCamera makeDefault {...cameraSettings} />
           <Lights />
           <OrbitControls

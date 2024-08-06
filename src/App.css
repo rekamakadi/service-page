@@ -1,5 +1,10 @@
 /************ Custom Font ************/
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+/* @font-face {
+  font-family: 'MyriadPro';
+  src: url('fonts/MYRIADPRO-BOLD.OTF') format('opentype');
+  font-weight: bold;
+} */
+
 
 /************ Default Css ************/
 * {
@@ -17,9 +22,9 @@ body {
   font-weight: 400;
   overflow-x: hidden;
   position: relative;
-  background-color: #121212 !important;
-  color: #fff !important;
-  font-family: 'Montserrat', sans-serif !important;
+  background-color: #0F0F0F !important;
+  color: #EFD0DE !important;
+  font-family: 'MyriadPro', bold !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -60,6 +65,18 @@ input:focus, textarea:focus, select:focus {
 	}
 }
 
+p {
+  color: #efd0de;
+}
+
+h1, h3 {
+  color: #ffed00;
+}
+
+h2 {
+  color: #ff37b1;
+}
+
 p.success {
 	color: green;
 }
@@ -84,8 +101,8 @@ nav.navbar a.navbar-brand {
     width: 9%;
 }
 nav.navbar .navbar-nav .nav-link.navbar-link {
+  color: #efd0de;
   font-weight: 400;
-  color: #fff !important;
   letter-spacing: 0.8px;
   padding: 0 25px;
   font-size: 18px;
@@ -220,7 +237,6 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .banner {
   margin-top: 0;
   padding: 260px 0 100px 0;
-  /* Todo: background-image: url('./assets/img/banner-bg.png'); */
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -237,7 +253,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin-bottom: 16px;
   display: inline-block;
 }
-.banner h1 {
+.banner h2 {
   font-size: 65px;
   font-weight: 700;
   letter-spacing: 0.8px;
@@ -245,53 +261,19 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin-bottom: 20px;
   display: block;
 }
+
+.banner .greeting {
+  color: #EFD0DE;
+}
+
 .banner p {
-  color: #B8B8B8;
   font-size: 18px;
   letter-spacing: 0.8px;
   text-align: justify;
   line-height: 1.5em;
   width: 96%;
 }
-#connect-arrow button {
-  color: #fff;
-  font-weight: 700;
-  font-size: 20px;
-  margin-top: 60px;
-  letter-spacing: 0.8px;
-  display: flex;
-  align-items: center;
-}
-#connect-arrow button svg {
-  font-size: 25px;
-  margin-left: 10px;
-  transition: 0.3s ease-in-out;
-  line-height: 1;
-}
-#connect-arrow button:hover svg {
-  margin-left: 25px;
-}
-.banner img {
-  width: 25%;
-  display: block;
-  margin: 0 auto;
-  background: none;
-  /* animation: updown 3s linear infinite; */
-}
-@keyframes updown {
-    0% {
-        transform: translateY(-20px);
-    }
-    50% {
-        transform: translateY(20px);
-    }
-    100% {
-        transform: translateY(-20px);
-    }
-}
-.txt-rotate > .wrap {
-  border-right: 0.08em solid #666;
-}
+
 
 /************ Skills Css ************/
 .skill {
@@ -310,7 +292,6 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 	font-weight: 700;
 }
 .skill p {
-    color: #B8B8B8;
     font-size: 18px;
     letter-spacing: 0.8px;
     line-height: 1.5em;
@@ -345,7 +326,6 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   text-align: center;
 }
 .project p {
-  color: #B8B8B8;
   font-size: 18px;
   letter-spacing: 0.8px;
   line-height: 1.5em;

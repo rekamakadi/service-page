@@ -15,16 +15,21 @@ const ModelSwitcher = React.memo(() => {
   const { setSelected, setRotationSpeed, setCameraSettings } =
     useContext(ModelSceneContext);
   const [currentModelIndex, setCurrentModelIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+
   const gltf = useLoader(GLTFLoader, models[currentModelIndex].path);
 
+
   useEffect(() => {
+    setIsLoading(true);
+    const modelConfig = models[currentModelIndex];
     if (gltf) {
-      const modelConfig = models[currentModelIndex];
       setSelected(gltf.scene);
       setRotationSpeed(modelConfig.rotationSpeed || null); // Set rotation speed from modelConfig
       setCameraSettings(
         modelConfig.cameraSettings || { position: [0, 0, 5], fov: 75 }
       ); // Set camera settings
+      setIsLoading(false);
     }
   }, [
     gltf,
@@ -60,8 +65,9 @@ const ModelSwitcher = React.memo(() => {
         fontSize: "1rem",
       }}
       onClick={handleSwitch}
+      disabled={isLoading} 
     >
-      <ArrowIcon />
+      {isLoading ? "Loading..." : <ArrowIcon />}
     </button>
   );
 });

@@ -6,19 +6,29 @@ import { extend } from "@react-three/fiber";
 import { OrbitControls, TransformControls } from "three-stdlib";
 import { ModelScene } from "./ModelScene.js";
 import { TypeAnimation } from "react-type-animation";
-// import { Parallax } from "react-scroll-parallax";
 
 extend({ OrbitControls, TransformControls });
 
 export const Banner = React.memo(() => {
   return (
     <section className="banner" id="home">
-      {/* <Parallax y={[-30, 30]}>
-        <img src={`${process.env.PUBLIC_URL}/sdv-LOGO-03.svg`} alt="Logo" />
-      </Parallax> */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "auto",
+        }}
+      >
+        <img
+          src={`${process.env.PUBLIC_URL}/sdv-LOGO-03.svg`}
+          alt="Logo"
+          style={{ height: "40vh", width: "auto" }}
+        />
+      </div>
       <Container>
-        <Row className="aligh-items-center">
-          <Col xs={12} md={6} xl={6}>
+        <Row className="align-items-center">
+          <Col xs={12} md={6} xl={6} className="d-flex align-items-center">
             <TrackVisibility>
               {({ isVisible }) => (
                 <div
@@ -26,7 +36,7 @@ export const Banner = React.memo(() => {
                     isVisible ? "animate__animated animate__fadeIn" : ""
                   }
                 >
-                  <h1 className="greeting">Welcome, We are</h1> 
+                  <h1 className="greeting">Welcome, We are</h1>
                   <h1>Sphere Dice Visuals</h1>
                   <br />
                   <span className="tagline">
@@ -63,7 +73,7 @@ export const Banner = React.memo(() => {
               )}
             </TrackVisibility>
           </Col>
-          <Col xs={12} md={6} xl={6}>
+          <Col xs={12} md={6} xl={6} className="d-flex align-items-center">
             <TrackVisibility>
               {({ isVisible }) => (
                 <div
@@ -80,9 +90,16 @@ export const Banner = React.memo(() => {
           <Col xs={12} className="d-lg-none">
             <TrackVisibility>
               {({ isVisible }) => (
-                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
+                <div
+                  className={
+                    isVisible ? "animate__animated animate__fadeIn" : ""
+                  }
+                >
                   <p>
-                    We specialize in bringing your digital dreams to life through stunning animations, captivating product visualizations, innovative branding, and web development. Our expertise extends to crafting engaging explainer videos, video editing, creating impactful social media assets, and much more.
+                    We specialize in bringing your digital dreams to life
+                    through stunning animations, captivating product
+                    visualizations, innovative branding, and web development.
+                    {/* Our expertise extends to crafting engaging explainer videos, video editing, creating impactful social media assets, and much more.*/}
                   </p>
                 </div>
               )}

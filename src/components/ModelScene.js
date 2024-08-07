@@ -1,4 +1,4 @@
-import React, { useState, Suspense, useCallback, useEffect } from "react";
+import React, { useState, Suspense, useCallback } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import Lights from "./Lights";

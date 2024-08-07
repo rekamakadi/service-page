@@ -60,6 +60,7 @@ export const ModelScene = React.memo(() => {
           <Lights />
           <OrbitControls
             enabled={hovering || dragging}
+            enableZoom={false}
             maxPolarAngle={Math.PI}
             minPolarAngle={0}
           />

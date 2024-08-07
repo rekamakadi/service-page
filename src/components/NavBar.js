@@ -36,7 +36,7 @@ export const NavBar = () => {
           {isSidebarOpen ? "Close" : "Menu"}
         </Button>
         <div className="sidebar-content">
-          <Navbar.Brand href="/" className="sidebar-brand">
+          <Navbar.Brand href="/service-page/" className="sidebar-brand">
             <img src={`${process.env.PUBLIC_URL}/sdv-LOGO-03.svg`} alt="Logo" />
           </Navbar.Brand>
           <Nav className="flex-column">

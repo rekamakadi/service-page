@@ -9,7 +9,7 @@ export const Footer = () => {
       <Container>
         <Row className="align-items-center">
           <Col size={12} sm={6}>
-            <a href="/">
+            <a href="/service-page/">
               <img
                 src={`${process.env.PUBLIC_URL}/sdv-LOGO-03.svg`}
                 alt="Logo"

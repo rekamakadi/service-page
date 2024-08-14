@@ -65,7 +65,7 @@ export const Contact = () => {
                     isVisible ? "animate__animated animate__fadeIn" : ""
                   }
                 >
-                  <h2>Get In Touch</h2>
+                  <h2 className="text-center">Get In Touch</h2>
                   <form onSubmit={handleSubmit}>
                     <Row>
                       <Col size={12} sm={6} className="px-1">
@@ -95,9 +95,11 @@ export const Contact = () => {
                             onFormUpdate("message", e.target.value)
                           }
                         ></textarea>
-                        <button type="submit">
-                          <span>{buttonText}</span>
-                        </button>
+                        <div className="d-flex justify-content-center">
+                          <button type="submit">
+                            <span>{buttonText}</span>
+                          </button>
+                        </div>
                       </Col>
                       {status.message && (
                         <Col>

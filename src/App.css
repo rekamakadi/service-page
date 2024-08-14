@@ -72,6 +72,18 @@
   box-sizing: border-box;
 }
 
+:root {
+  --primary-color: #ffed00;
+  --secondary-color: #ff37b1;
+  --background-color: #0F0F0F;
+  --text-color: #EFD0DE;
+  --success-color: green;
+  --danger-color: red;
+
+  --primary-gradient: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  --secondary-gradient: linear-gradient(90.21deg, rgba(170, 54, 124, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%);
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 75px;
@@ -81,8 +93,8 @@ body {
   font-weight: 400;
   overflow-x: hidden;
   position: relative;
-  background-color: #0F0F0F !important;
-  color: #EFD0DE !important;
+  background-color: var(--background-color) !important;
+  color:var(--text-color) !important;
   font-family: 'MyriadPro', sans-serif !important;
 }
 
@@ -125,23 +137,23 @@ input:focus, textarea:focus, select:focus {
 }
 
 p {
-  color: #efd0de;
+  color: var(--text-color);
 }
 
 h1, h3 {
-  color: #ffed00;
+  color: var(--primary-color);
 }
 
 h2 {
-  color: #ff37b1;
+  color: var(--secondary-color);
 }
 
 p.success {
-	color: green;
+	color: var(--success-color);
 }
 
 p.danger {
-	color: red;
+	color: var(--danger-color);
 }
 
 .social-icon {
@@ -188,7 +200,7 @@ p.danger {
   top: 0;
   left: 0;
   height: 100%;
-  width: 250px; /* Width of the sidebar */
+  width: 250px;
   background-color: #343a40;
   color: white;
   transition: transform 0.3s ease;
@@ -203,7 +215,7 @@ p.danger {
 .sidebar-toggle {
   position: absolute;
   top: 10px;
-  right: -60px; /* Adjust to fit the button */
+  right: -60px;
   width: 60px;
   height: 40px;
   background-color: #343a40;
@@ -251,7 +263,7 @@ p.danger {
   font-weight: 700;
   letter-spacing: 0.8px;
   padding: 8px 10px;
-  background: linear-gradient(90.21deg, rgba(170, 54, 124, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%);
+  background: var(--secondary-gradient);
   border: 1px solid rgba(255, 255, 255, 0.5);
   font-size: 20px;
   margin-bottom: 16px;
@@ -267,7 +279,7 @@ p.danger {
 }
 
 .banner .greeting {
-  color: #EFD0DE;
+  color: var(--text-color);;
 }
 
 .banner p {
@@ -366,7 +378,7 @@ p.danger {
     position: absolute;
     width: 0;
     height: 100%;
-    background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+    background: var(--primary-gradient);
     top: 0;
     left: 0;
     z-index: -1;
@@ -398,7 +410,7 @@ p.danger {
 }
 .proj-imgbx::before {
   content: "";
-  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  background: var(--primary-gradient);
   opacity: 0.85;
   position: absolute;
   width: 100%;
@@ -445,7 +457,7 @@ p.danger {
 
 /************ Contact Css ************/
 .contact {
-  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  background: var(--primary-gradient);
   padding: 60px 0 200px 0;
 }
 .contact img {

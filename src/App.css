@@ -74,7 +74,7 @@
 
 :root {
   --primary-color: #ffed00;
-  --secondary-color: #ff37b1;
+  --secondary-color: #4A2FBD;
   --background-color: #0F0F0F;
   --text-color: #EFD0DE;
   --success-color: green;
@@ -146,6 +146,7 @@ h1, h3 {
 
 h2 {
   color: var(--secondary-color);
+  text-shadow: 1px 1px 1px var(--primary-color);
 }
 
 p.success {
@@ -493,7 +494,7 @@ p.danger {
 
 /************ Contact Css ************/
 .contact {
-  background: var(--primary-gradient);
+  background: var(--secondary-gradient);
   padding: 60px 0 200px 0;
 }
 .contact img {

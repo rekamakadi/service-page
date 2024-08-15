@@ -1,14 +1,7 @@
-// import meter1 from "../assets/img/meter1.svg";
-// import meter2 from "../assets/img/meter2.svg";
-// import meter3 from "../assets/img/meter3.svg";
 import { useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { TypeAnimation } from "react-type-animation";
-
-// import arrow1 from "../assets/img/arrow1.svg";
-// import arrow2 from "../assets/img/arrow2.svg";
-// import colorSharp from "../assets/img/color-sharp.png"
+import ServiceCard from "./ServiceCard";
 
 export const Services = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -124,26 +117,13 @@ export const Services = () => {
                   );
                   const isMiddleItem =
                     index === (currentSlide + middleIndex) % services.length;
+
                   return (
-                    <div className="item" key={index}>
-                      <h3>{service.title}</h3>
-                      <p>{service.description}</p>
-                      {isMiddleItem && (
-                        <h5>
-                          <TypeAnimation
-                            sequence={[
-                              ...service.sequences.flatMap((seq) => [
-                                seq,
-                                1000,
-                              ]),
-                            ]}
-                            speed={50}
-                            repeat={Infinity}
-                            className="font-bold italic"
-                          />
-                        </h5>
-                      )}
-                    </div>
+                    <ServiceCard
+                      key={index}
+                      service={service}
+                      isMiddleItem={isMiddleItem}
+                    />
                   );
                 })}
               </Carousel>

@@ -1,12 +1,12 @@
 import React from "react";
 import { TypeAnimation } from "react-type-animation";
 
-const ServiceCard = ({ service, isMiddleItem }) => {
+const ServiceCard = ({ service, isActive }) => {
   return (
     <div className="item">
       <h3>{service.title}</h3>
       <p>{service.description}</p>
-      {isMiddleItem && (
+      {isActive && (
         <h5>
           <TypeAnimation
             sequence={[...service.sequences.flatMap((seq) => [seq, 1000])]}

@@ -8,7 +8,7 @@ import React, {
 import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import ArrowIcon from "./ArrowIcon";
-import models from "../modelConfig";
+import models from "../config/modelConfig";
 import { ModelSceneContext } from "../context/ModelSceneContext";
 
 const ModelSwitcher = React.memo(() => {

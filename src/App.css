@@ -328,6 +328,7 @@ p.danger {
 }
 
 
+
 /************ Skills Css ************/
 .skill {
   height: 100vh;
@@ -359,9 +360,9 @@ p.danger {
   }
 }
 
-.slider h2 {
+.skill h2 {
   position: absolute;
-  top: 50%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -386,7 +387,7 @@ p.danger {
   transform-origin: center;
   transform-style: preserve-3d;
   transform: rotateY(calc(var(--i)*72deg)) translateZ(200px);
-  -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, #000400);
+  /* -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, #000400); */
   transition: transform 0.5s;
 }
 
@@ -397,18 +398,15 @@ p.danger {
   width: 100%;
   height: 100%;
   border-radius: 10px;
+  background-color: var(--background-color) 0.5;
   object-fit: cover;
   transition: transform 0.5s;
 }
 
-.slider-span:hover .service-card {
-  transform: translateY(-50px) scale(1.2);
+.service-card:hover {
+  transform: translateY(-10px) scale(1.2);
 }
 
-.skill h2 {
-	font-size: 45px;
-	font-weight: 700;
-}
 .skill p {
     font-size: 18px;
     letter-spacing: 0.8px;

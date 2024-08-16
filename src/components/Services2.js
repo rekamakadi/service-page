@@ -5,6 +5,7 @@ import { services } from "../config/services";
 
 export const Services = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isActive, setIsActive] = useState(false);
 
   return (
     <section className="skill">
@@ -12,7 +13,6 @@ export const Services = () => {
         <h2>Services</h2>
         <div className="carousel">
           {services.map((service, index) => {
-            const isActive = currentSlide === index;
             return (
               <span
                 className={`slider-span ${isActive ? "active" : ""}`}

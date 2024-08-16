@@ -330,23 +330,22 @@ p.danger {
 
 /************ Skills Css ************/
 .skill {
-  margin-top: 60px;
-  padding: 0 0 50px 0;
-  position: relative;
-}
-
-.skill2 {
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background: #151515;
+  border-radius: 64px;
+  text-align: center;
+  padding-bottom: 20%;
+  position: relative;
 }
 
 .slider{
   position: relative;
-  width: 200px;
   height: 200px;
+  width: 200px;
   transform-style: preserve-3d;
   animation: rotate 30s linear infinite;
 }
@@ -369,19 +368,29 @@ p.danger {
   font-size: 4rem;
 }
 
-.slider span{
+.carousel {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translateZ();
+  transition: transform 1s;
+}
+
+.slider-span{
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
   transform-origin: center;
   transform-style: preserve-3d;
-  transform: rotateY(calc(var(--i)*72deg)) translateZ(300px);
+  transform: rotateY(calc(var(--i)*72deg)) translateZ(200px);
   -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, #000400);
+  transition: transform 0.5s;
 }
 
-.slider span img{
+.service-card{
   position: absolute;
   top: 0;
   left: 0;
@@ -392,70 +401,10 @@ p.danger {
   transition: transform 0.5s;
 }
 
-.slider span:hover img {
+.slider-span:hover .service-card {
   transform: translateY(-50px) scale(1.2);
 }
 
-.carousel-container {
-  position: relative;
-}
-
-.carousel-container {
-  position: relative;
-  perspective: 1000px; /* Required for 3D effect */
-  width: 100%;
-  overflow: hidden;
-}
-
-.carousel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.5s ease-in-out;
-  transform-style: preserve-3d;
-}
-
-.carousel-slide {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform-origin: center;
-  transform-style: preserve-3d;
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  width: 300px; /* Adjust the width as needed */
-  opacity: 1;
-}
-
-.carousel-control {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 1;
-}
-
-.carousel-control.prev {
-  left: 0;
-}
-
-.carousel-control.next {
-  right: 0;
-}
-
-.carousel-control:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.skill-bx {
-  background: #151515;
-  border-radius: 64px;
-  text-align: center;
-  padding: 60px 50px;
-}
 .skill h2 {
 	font-size: 45px;
 	font-weight: 700;
@@ -466,22 +415,7 @@ p.danger {
     line-height: 1.5em;
     margin: 14px 0 75px 0;
 }
-.skill-slider {
-  width: 80%;
-  margin: 0 auto;
-  position: relative;
-}
-.skill-slider .item img {
-  width: 50%;
-  margin: 0 auto 15px auto;
-}
-.background-image-left {
-  top: 28%;
-  position: absolute;
-  bottom: 0;
-  width: 40%;
-  z-index: -4;
-}
+
 
 /************ Projects Css ************/
 .project {

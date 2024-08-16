@@ -1,6 +1,7 @@
 export const services = [
     {
       title: "Animation",
+      img: "https://picsum.photos/200",
       description:
         "Transform complex concepts into engaging animations that resonate with your audience.",
       sequences: [
@@ -12,6 +13,7 @@ export const services = [
     },
     {
       title: "Product Visualization",
+      img: "https://picsum.photos/200",
       description:
         "Transform your products into realistic 3D visuals that showcase every detail.",
       sequences: [
@@ -23,6 +25,7 @@ export const services = [
     },
     {
       title: "Branding",
+      img: "https://picsum.photos/200",
       description:
         "From logos to packaging, we craft branding solutions that leave a lasting impression.",
       sequences: [
@@ -34,6 +37,7 @@ export const services = [
     },
     {
       title: "Web Development",
+      img: "https://picsum.photos/200",
       description:
         "Build your online presence with custom web solutions tailored to your needs.",
       sequences: [
@@ -45,6 +49,7 @@ export const services = [
     },
     {
       title: "Explainer Videos / Video Editing",
+      img: "https://picsum.photos/200",
       description:
         "Communicate your message clearly with professional explainer videos and seamless editing.",
       sequences: [

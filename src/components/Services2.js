@@ -8,9 +8,12 @@ export const Services = () => {
   const [isActive, setIsActive] = useState(false);
 
   return (
+    <>
+    <h2 className="text-align:center">Services</h2>
     <section className="skill">
+      
       <div className="slider">
-        <h2>Services</h2>
+        
         <div className="carousel">
           {services.map((service, index) => {
             return (
@@ -25,6 +28,6 @@ export const Services = () => {
           })}
         </div>
       </div>
-    </section>
+    </section></>
   );
 };

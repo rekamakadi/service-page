@@ -383,7 +383,7 @@ p.danger {
   height: 80%;
   transform-origin: center;
   transform-style: preserve-3d;
-  transform: rotateY(calc(var(--i)*72deg)) translateZ(240px);
+  transform: rotateY(calc(var(--i)*72deg)) translateZ(300px);
   /* -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, #000400); */
   transition: transform 0.6s;
 }

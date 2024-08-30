@@ -1,33 +1,122 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import ServiceCard from "./ServiceCard";
-import { responsive } from "../config/responsive";
 import { services } from "../config/services";
 
 export const Services = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isActive, setIsActive] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [rotation, setRotation] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(null);
+  const autoRotateInterval = useRef(null);
+  const totalCards = services.length;
+  const anglePerCard = 360 / totalCards;
+
+  // Automatic rotation
+  const startAutoRotate = () => {
+    if (!autoRotateInterval.current) {
+      autoRotateInterval.current = setInterval(() => {
+        setActiveIndex((prevIndex) => {
+          const nextIndex = prevIndex + 1;
+          return nextIndex >= totalCards ? 0 : nextIndex;
+        })
+        setRotation((prev) => prev - anglePerCard);
+      });
+    }
+  };
+
+  const stopAutoRotate = () => {
+    clearInterval(autoRotateInterval.current);
+    autoRotateInterval.current = null;
+  };
+
+  useEffect(() => {
+    if (activeIndex === 0 && !isDragging) {
+      startAutoRotate();
+    }
+    return () => stopAutoRotate();
+  }, [activeIndex, isDragging]);
+
+  const rotateOnShortestPath = (index) => {
+    setActiveIndex(index);
+    const targetRotation = -index * anglePerCard;
+    setRotation(targetRotation);
+    stopAutoRotate();
+  };
+
+  const handleVideoEnd = (index) => {
+    setActiveIndex(index + 1);
+    setRotation((prev) => prev - anglePerCard);
+  };
+
+  const handleDragStart = (e) => {
+    setIsDragging(true);
+    setStartX(e.clientX || e.touches[0].clientX);
+    stopAutoRotate();
+  };
+
+  const handleDragMove = (e) => {
+    if (!isDragging) return;
+    const currentX = e.clientX || e.touches[0].clientX;
+    const moveBy = (startX - currentX) * -0.4;
+    setRotation((prevRotation) => prevRotation + moveBy);
+    setStartX(currentX);
+  };
+
+  const handleDragEnd = () => {
+    setIsDragging(false);
+    const snappedIndex = Math.round(rotation / -anglePerCard) % totalCards;
+    const correctedIndex = (snappedIndex + totalCards) % totalCards;
+    setActiveIndex(correctedIndex);
+    const newRotation = -correctedIndex * anglePerCard;
+    setRotation(newRotation);
+    startAutoRotate();
+  };
 
   return (
     <>
-    <h2 className="text-align:center">Services</h2>
-    <section className="skill">
-      
-      <div className="slider">
-        
-        <div className="carousel">
-          {services.map((service, index) => {
-            return (
+      <h2 className="text-align:center">Services</h2>
+      <section
+        id="services"
+        className="skill"
+        onMouseDown={handleDragStart}
+        onTouchStart={handleDragStart}
+        onMouseMove={handleDragMove}
+        onTouchMove={handleDragMove}
+        onMouseUp={handleDragEnd}
+        onTouchEnd={handleDragEnd}
+      >
+        <div
+          className="slider"
+          style={{
+            transform: `perspective(1000px) rotateY(${rotation}deg)`,
+            transition: isDragging ? "none" : "transform 0.8s ease-in-out",
+          }}
+        >
+          <div className="carousel">
+            {services.map((service, index) => (
               <span
-                className={`slider-span ${isActive ? "active" : ""}`}
-                style={{ "--i": index }}
+                className={`slider-span ${
+                  activeIndex === index ? "active" : ""
+                }`}
+                style={{
+                  "--i": index,
+                  transform: `rotateY(calc(var(--i) * ${anglePerCard}deg)) translateZ(300px) ${
+                    activeIndex === index ? "rotateY(0deg)" : ""
+                  }`,
+                }}
                 key={index}
+                onClick={() => rotateOnShortestPath(index)}
               >
-                <ServiceCard service={service} isActive={isActive} />
+                <ServiceCard
+                  service={service}
+                  isActive={activeIndex === index}
+                  onVideoEnd={() => handleVideoEnd(index)}
+                />
               </span>
-            );
-          })}
+            ))}
+          </div>
         </div>
-      </div>
-    </section></>
+      </section>
+    </>
   );
 };

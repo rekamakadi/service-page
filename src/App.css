@@ -347,6 +347,11 @@ p.danger {
   border-radius: 64px;
   text-align: center;
   position: relative;
+  cursor: grab;
+}
+
+.skill:active {
+  cursor: grabbing;
 }
 
 .slider{
@@ -354,16 +359,7 @@ p.danger {
   height: 200px;
   width: 200px;
   transform-style: preserve-3d;
-  animation: rotate 30s linear infinite;
-}
-@keyframes rotate {
-  0% {
-    transform: perspective(1000px) rotateY(0deg);
-  }
-
-  100% {
-    transform: perspective(1000px) rotateY(360deg);
-  }
+  transition: transform 0.8s ease-in-out;
 }
 
 .carousel {
@@ -371,27 +367,25 @@ p.danger {
   height: 400px;
   position: relative;
   transform-style: preserve-3d;
-  transform: translateZ();
-  transition: transform 1s;
 }
 
 .slider-span{
   position: absolute;
   top: 0;
   left: 0;
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
   transform-origin: center;
   transform-style: preserve-3d;
-  transform: rotateY(calc(var(--i)*72deg)) translateZ(300px);
-  /* -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, #000400); */
-  transition: transform 0.6s;
+  transition: transform 0.6s ease;
+}
+
+.slider-span.active {
+  transform: translateZ(350px) rotateY(0deg);
+  z-index: 100;
 }
 
 .service-card{
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   border-radius: 10px;
@@ -404,13 +398,18 @@ p.danger {
   transform: translateY(-5px) scale(1.2);
 }
 
-.skill p {
-    font-size: 18px;
-    letter-spacing: 0.8px;
-    line-height: 1.5em;
-    margin: 14px 0 75px 0;
+.service-card video {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
+.skill p {
+  font-size: 16px;
+  letter-spacing: 0.8px;
+  line-height: 1.5em;
+  margin: 14px 0 75px 0;
+}
 
 /************ Projects Css ************/
 .project {

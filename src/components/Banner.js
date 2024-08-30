@@ -12,20 +12,6 @@ extend({ OrbitControls, TransformControls });
 export const Banner = React.memo(() => {
   return (
     <section className="banner" id="home">
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "auto",
-        }}
-      >
-        <img
-          src={`${process.env.PUBLIC_URL}/sdv-LOGO-03.svg`}
-          alt="Logo"
-          style={{ height: "40vh", width: "auto" }}
-        />
-      </div>
       <Container>
         <Row className="align-items-center">
           <Col xs={12} md={6} xl={6} className="d-flex align-items-center">

@@ -17,7 +17,7 @@ function Lights() {
      
      <directionalLight position={[10, 10, 10]} intensity={0.5} />   {/* right */}
      <directionalLight position={[-10, 10, 10]} intensity={0.5} />  {/* left  */}
-     <directionalLight position={[0, 0, 10]} intensity={0.5} />     {/* Front */}
+     <directionalLight position={[0, 1, 10]} intensity={0.3} />     {/* Front */}
      <directionalLight position={[0, 0, -10]} intensity={0.5} />    {/* back  */}
 
      <directionalLight position={[-5, -20, 0]} intensity={1.5} />    {/* under */}

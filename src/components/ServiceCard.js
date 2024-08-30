@@ -3,14 +3,22 @@ import { TypeAnimation } from "react-type-animation";
 
 const ServiceCard = ({ service, isActive, onVideoEnd }) => {
   const videoRef = useRef(null);
+  const delayTimeoutRef = useRef(null);
 
   useEffect(() => {
     const video = videoRef.current;
     if (isActive && video) {
-      video.play();
+      delayTimeoutRef.current = setTimeout(() => {
+        video.play();
+      }, 1000);
     } else if (video) {
+      clearTimeout(delayTimeoutRef.current);
       video.pause();
       video.currentTime = 0;
+    }
+
+    return () => {
+      clearTimeout(delayTimeoutRef.current);
     }
   }, [isActive]);
 

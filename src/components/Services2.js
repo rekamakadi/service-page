@@ -3,7 +3,7 @@ import ServiceCard from "./ServiceCard";
 import { services } from "../config/services";
 
 export const Services = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(null);
   const [rotation, setRotation] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(null);
@@ -18,7 +18,7 @@ export const Services = () => {
         setActiveIndex((prevIndex) => {
           const nextIndex = prevIndex + 1;
           return nextIndex >= totalCards ? 0 : nextIndex;
-        })
+        });
         setRotation((prev) => prev - anglePerCard);
       });
     }
@@ -30,7 +30,8 @@ export const Services = () => {
   };
 
   useEffect(() => {
-    if (activeIndex === 0 && !isDragging) {
+    if (activeIndex === null && !isDragging) {
+      setActiveIndex(0);
       startAutoRotate();
     }
     return () => stopAutoRotate();
@@ -44,8 +45,13 @@ export const Services = () => {
   };
 
   const handleVideoEnd = (index) => {
-    setActiveIndex(index + 1);
-    setRotation((prev) => prev - anglePerCard);
+    if (index === totalCards - 1) {
+      setActiveIndex(0);
+      setRotation((prev) => prev - anglePerCard);
+    } else {
+      setActiveIndex(index + 1);
+      setRotation((prev) => prev - anglePerCard);
+    }
   };
 
   const handleDragStart = (e) => {

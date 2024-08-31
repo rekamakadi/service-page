@@ -79,7 +79,7 @@ export const Services = () => {
   };
 
   return (
-    <>
+    <div className="skill-container">
       <h2 className="text-align:center">Services</h2>
       <section
         id="services"
@@ -92,7 +92,9 @@ export const Services = () => {
         onTouchEnd={handleDragEnd}
       >
         <div
-          className="slider"
+          className={`slider ${
+            isDragging ? "dragging" : ""
+          }`}
           style={{
             transform: `perspective(1000px) rotateY(${rotation}deg)`,
             transition: isDragging ? "none" : "transform 0.8s ease-in-out",
@@ -123,6 +125,6 @@ export const Services = () => {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };

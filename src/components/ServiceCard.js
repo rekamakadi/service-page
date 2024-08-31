@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-import { TypeAnimation } from "react-type-animation";
 
 const ServiceCard = ({ service, isActive, onVideoEnd }) => {
   const videoRef = useRef(null);
@@ -19,14 +18,11 @@ const ServiceCard = ({ service, isActive, onVideoEnd }) => {
 
     return () => {
       clearTimeout(delayTimeoutRef.current);
-    }
+    };
   }, [isActive]);
 
   return (
-    <div
-      className={`service-card ${isActive ? "active" : ""}`}
-    >
-      {/* <img class="service-img" src={service.img} alt={service.title} /> */}
+    <div className={`service-card ${isActive ? "active" : ""}`}>
       <video
         className="service-video"
         ref={videoRef}
@@ -35,21 +31,9 @@ const ServiceCard = ({ service, isActive, onVideoEnd }) => {
         loop={false}
         onEnded={onVideoEnd}
       />
-      {/* <h3>{service.title}</h3> */}
-      {isActive && (
-        <>
-          <p>{service.description}</p>
-
-          {/* <h5>
-            <TypeAnimation
-              sequence={[...service.sequences.flatMap((seq) => [seq, 1000])]}
-              speed={50}
-              repeat={Infinity}
-              className="font-bold italic"
-            />
-          </h5> */}
-        </>
-      )}
+      <div className={`description ${isActive ? "open" : ""}`}>
+        <p>{service.description}</p>
+      </div>
     </div>
   );
 };

@@ -2,7 +2,7 @@ export const services = [
     {
       title: "Animation",
       img: "https://picsum.photos/200",
-      vid: `${process.env.PUBLIC_URL}/services/animation.mp4`,
+      vid: `${process.env.PUBLIC_URL}/services/product-viz.mp4`,
       description:
         "Transform complex concepts into engaging animations that resonate with your audience.",
       sequences: [
@@ -28,7 +28,7 @@ export const services = [
     {
       title: "Branding",
       img: "https://picsum.photos/200",
-      vid: `${process.env.PUBLIC_URL}/services/branding.mp4`,
+      vid: `${process.env.PUBLIC_URL}/services/product-viz.mp4`,
       description:
         "From logos to packaging, we craft branding solutions that leave a lasting impression.",
       sequences: [
@@ -41,7 +41,7 @@ export const services = [
     {
       title: "Web Development",
       img: "https://picsum.photos/200",
-      vid: `${process.env.PUBLIC_URL}/services/webdev.mp4`,
+      vid: `${process.env.PUBLIC_URL}/services/product-viz.mp4`,
       description:
         "Build your online presence with custom web solutions tailored to your needs.",
       sequences: [
@@ -54,7 +54,7 @@ export const services = [
     {
       title: "Explainer Videos / Video Editing",
       img: "https://picsum.photos/200",
-      vid: `${process.env.PUBLIC_URL}/services/explainer.mp4`,
+      vid: `${process.env.PUBLIC_URL}/services/product-viz.mp4`,
       description:
         "Communicate your message clearly with professional explainer videos and seamless editing.",
       sequences: [

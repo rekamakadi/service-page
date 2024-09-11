@@ -103,7 +103,7 @@ export const Services = () => {
               const isActive = activeIndex === index;
               const angle = index * anglePerCard;
               const transformStyle = {
-                transform: `rotateY(${angle}deg) translateZ(400px)`,
+                transform: `rotateY(${angle}deg) translateZ(350px)`,
                 transition: isDragging ? "none" : "transform 0.6s ease",
                 zIndex: isActive ? 100 : "auto",
               };

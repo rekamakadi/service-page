@@ -13,8 +13,8 @@ export const Banner = React.memo(() => {
   return (
     <section className="banner" id="home">
       <Container>
-        <Row className="align-items-center">
-          <Col xs={12} md={6} xl={6} className="d-flex align-items-center">
+        <Row className="align-items-center justify-content-between">
+          <Col xs={12} md={6} xl={6} className="d-flex align-items-center order-2 order-md-1">
             <TrackVisibility>
               {({ isVisible }) => (
                 <div
@@ -47,7 +47,7 @@ export const Banner = React.memo(() => {
                     />
                   </h3>
                   <br />
-                  <p className="d-none d-lg-block">
+                  <p>
                     We specialize in bringing your digital dreams to life
                     through stunning animations, captivating product
                     visualizations, innovative branding, and web development.
@@ -59,34 +59,16 @@ export const Banner = React.memo(() => {
               )}
             </TrackVisibility>
           </Col>
-          <Col xs={12} md={6} xl={6} className="d-flex align-items-center">
-            <TrackVisibility>
+          <Col xs={12} md={6} xl={6} className="d-flex align-items-center order-1 order-md-2">
+            <TrackVisibility style={{ height: "100vh", width: "100%" }}>
               {({ isVisible }) => (
                 <div
                   className={
                     isVisible ? "animate__animated animate__zoomIn" : ""
                   }
-                  style={{ height: "100vh" }}
+                  style={{ height: "100vh", width: "100%" }}
                 >
                   <ModelScene />
-                </div>
-              )}
-            </TrackVisibility>
-          </Col>
-          <Col xs={12} className="d-lg-none">
-            <TrackVisibility>
-              {({ isVisible }) => (
-                <div
-                  className={
-                    isVisible ? "animate__animated animate__fadeIn" : ""
-                  }
-                >
-                  <p>
-                    We specialize in bringing your digital dreams to life
-                    through stunning animations, captivating product
-                    visualizations, innovative branding, and web development.
-                    {/* Our expertise extends to crafting engaging explainer videos, video editing, creating impactful social media assets, and much more.*/}
-                  </p>
                 </div>
               )}
             </TrackVisibility>

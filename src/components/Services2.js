@@ -108,7 +108,7 @@ export const Services = () => {
                 }`}
                 style={{
                   "--i": index,
-                  transform: `rotateY(calc(var(--i) * ${anglePerCard}deg)) translateZ(300px) ${
+                  transform: `rotateY(calc(var(--i) * ${anglePerCard}deg)) translateZ(400px) ${
                     activeIndex === index ? "rotateY(0deg)" : ""
                   }`,
                 }}

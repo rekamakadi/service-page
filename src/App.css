@@ -359,7 +359,6 @@ p.danger {
   height: 200px;
   width: 200px;
   transform-style: preserve-3d;
-  transition: transform 0.8s ease-in-out;
   cursor: grab;
 }
 
@@ -374,22 +373,6 @@ p.danger {
   transform-style: preserve-3d;
 }
 
-.slider-span{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform-origin: center;
-  transform-style: preserve-3d;
-  transition: transform 0.6s ease;
-}
-
-.slider-span.active {
-  transform: translateZ(100px) rotateY(0deg);
-  z-index: 100;
-}
-
 .service-card{
   background: none;
   display: flex;
@@ -397,19 +380,9 @@ p.danger {
   justify-content: center;
   align-items: center;
   width: 100%;
-  transition: transform 0.5s;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px 8px 8px 30%;
   overflow: hidden;
-}
-
-.service-card.active {
-  background: var(--secondary-gradient);
-}
-
-.service-card:hover {
-  transform: translateY(-5px) scale(1.2);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
 }
 
 .service-video {
@@ -418,27 +391,6 @@ p.danger {
   height: auto;
   border-radius: 8px 8px 0 50%;
   object-fit: cover;
-}
-
-.description {
-  overflow: hidden;
-  max-height: 0;
-  max-width: 0;
-  opacity: 0;
-  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  /* width: 100%; */
-  padding: 0 10px;
-  box-sizing: border-box;
-  border-bottom-left-radius: 30%;
-}
-
-.description.open {
-  max-height: fit-content;
-  max-width: fit-content;
-  opacity: 1;
-  padding-top: 1%;
-  padding-bottom: 10%;
-  padding-left: 10%;
 }
 
 .description p {

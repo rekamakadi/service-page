@@ -92,36 +92,37 @@ export const Services = () => {
         onTouchEnd={handleDragEnd}
       >
         <div
-          className={`slider ${
-            isDragging ? "dragging" : ""
-          }`}
+          className={`slider ${isDragging ? "dragging" : ""}`}
           style={{
             transform: `perspective(1000px) rotateY(${rotation}deg)`,
             transition: isDragging ? "none" : "transform 0.8s ease-in-out",
           }}
         >
           <div className="carousel">
-            {services.map((service, index) => (
-              <span
-                className={`slider-span ${
-                  activeIndex === index ? "active" : ""
-                }`}
-                style={{
-                  "--i": index,
-                  transform: `rotateY(calc(var(--i) * ${anglePerCard}deg)) translateZ(400px) ${
-                    activeIndex === index ? "rotateY(0deg)" : ""
-                  }`,
-                }}
-                key={index}
-                onClick={() => rotateOnShortestPath(index)}
-              >
-                <ServiceCard
-                  service={service}
-                  isActive={activeIndex === index}
-                  onVideoEnd={() => handleVideoEnd(index)}
-                />
-              </span>
-            ))}
+            {services.map((service, index) => {
+              const isActive = activeIndex === index;
+              const angle = index * anglePerCard;
+              const transformStyle = {
+                transform: `rotateY(${angle}deg) translateZ(400px)`,
+                transition: isDragging ? "none" : "transform 0.6s ease",
+                zIndex: isActive ? 100 : "auto",
+              };
+
+              return (
+                <span
+                  className={`slider-span ${isActive ? "active" : ""}`}
+                  style={transformStyle}
+                  key={index}
+                  onClick={() => rotateOnShortestPath(index)}
+                >
+                  <ServiceCard
+                    service={service}
+                    isActive={isActive}
+                    onVideoEnd={() => handleVideoEnd(index)}
+                  />
+                </span>
+              );
+            })}
           </div>
         </div>
       </section>

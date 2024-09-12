@@ -59,8 +59,8 @@ export const Banner = React.memo(() => {
               )}
             </TrackVisibility>
           </Col>
-          <Col xs={12} md={6} xl={6} className="d-flex align-items-center order-1 order-md-2 p-2 p-md-0">
-            <TrackVisibility style={{ height: "100vh", width: "auto" }}>
+          <Col xs={12} md={6} xl={6} className="d-flex align-items-center order-1 order-md-2 p-3 p-md-0">
+            <TrackVisibility style={{ height: "100vh", width: "100%" }}>
               {({ isVisible }) => (
                 <div
                   className={

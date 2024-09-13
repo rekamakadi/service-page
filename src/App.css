@@ -83,6 +83,7 @@
   --primary-gradient: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
   --secondary-gradient: linear-gradient(90.21deg, rgba(170, 54, 124, 0.5) -5.91%, rgba(74, 47, 189, 0.5) 111.58%);
   --reverse-secondary-gradient: linear-gradient(90.21deg, rgba(74, 47, 189, 0.5) -5.91%, rgba(170, 54, 124, 0.5) 111.58%);
+  --transparent-secondary-gradient: linear-gradient(90.21deg, rgba(170, 54, 124, 0) -5.91%, rgba(170, 54, 124, 0.5) 0%, rgba(74, 47, 189, 0.5) 111.58%);
 }
 
 html {
@@ -395,29 +396,27 @@ p.danger {
   align-items: center;
   width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px 8px 8px 30%;
+  border-radius: 4px 4px 30% 4px;
   overflow: hidden;
 }
 
 .service-card.active {
-  background: var(--secondary-gradient);
+  background: var(--transparent-secondary-gradient);
 }
 
 .service-video {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 8px 8px 0 50%;
+  border-radius: 4px 4px 0 50%;
   object-fit: cover;
 }
 
 .description p {
-  margin: 0;
-  padding: 10px;
   font-size: 16px;
   letter-spacing: 0.5px;
   line-height: 1.7;
-  text-align: right;
+  text-align: left;
 }
 
 #services {

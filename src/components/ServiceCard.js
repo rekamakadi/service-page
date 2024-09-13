@@ -39,8 +39,7 @@ const ServiceCard = ({ service, isActive, onVideoEnd }) => {
     maxHeight: isActive ? "fit-content" : "0",
     maxWidth: isActive ? "fit-content" : "0",
     opacity: isActive ? 1 : 0,
-    paddingTop: isActive ? "1%" : "0",
-    paddingLeft: isActive ? "10%" : "0",
+    padding: isActive ? "10px" : "0",
     transition: "max-height 0.5s ease-in-out, opacity 0.5s ease-in-out",
   };
 

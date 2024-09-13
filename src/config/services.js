@@ -28,7 +28,7 @@ export const services = [
     {
       title: "Branding",
       img: "https://picsum.photos/200",
-      vid: `${process.env.PUBLIC_URL}/services/product-viz.mp4`,
+      vid: `${process.env.PUBLIC_URL}/services/branding3.mp4`,
       description:
         "From logos to packaging, we craft branding solutions that leave a lasting impression.",
       sequences: [
@@ -41,7 +41,7 @@ export const services = [
     {
       title: "Web Development",
       img: "https://picsum.photos/200",
-      vid: `${process.env.PUBLIC_URL}/services/product-viz.mp4`,
+      vid: `${process.env.PUBLIC_URL}/services/branding3.mp4`,
       description:
         "Build your online presence with custom web solutions tailored to your needs.",
       sequences: [

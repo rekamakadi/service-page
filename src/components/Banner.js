@@ -13,7 +13,7 @@ export const Banner = React.memo(() => {
   return (
     <section className="banner" id="home">
       <Container>
-        <Row className="align-items-center justify-content-between">
+        <Row className="align-items-center align-content-center">
           <Col xs={12} md={6} xl={6} className="d-flex align-items-center order-2 order-md-1">
             <TrackVisibility>
               {({ isVisible }) => (
@@ -59,14 +59,14 @@ export const Banner = React.memo(() => {
               )}
             </TrackVisibility>
           </Col>
-          <Col xs={12} md={6} xl={6} className="d-flex align-items-center order-1 order-md-2 p-3 p-md-0">
+          <Col xs={12} md={6} xl={6} className="d-flex align-items-center order-1 order-md-2 p-4 p-md-0">
             <TrackVisibility style={{ height: "100vh", width: "100%" }}>
               {({ isVisible }) => (
                 <div
                   className={
-                    isVisible ? "animate__animated animate__zoomIn" : ""
+                    isVisible ? "animate__animated animate__fadeIn" : ""
                   }
-                  style={{ height: "100vh", width: "100%" }}
+                  style={{ height: "50vh", width: "100%" }}
                 >
                   <ModelScene />
                 </div>

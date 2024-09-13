@@ -9,7 +9,7 @@ function Lights() {
 
   {/* directions x/y/z */}
 
-      <ambientLight intensity={1} /> {/* Reduced intensity to balance with other lights */}
+      <ambientLight intensity={2} /> {/* Reduced intensity to balance with other lights */}
        <hemisphereLight skyColor={0xc1ff2d} groundColor={0x9393ff} intensity={1} /> {/* Hemisphere light for a more natural look
     {/* <hemisphereLight skyColor={0xffffbb} groundColor={0x080820} intensity={1.6} />  Hemisphere light for a more natural look  */}
      

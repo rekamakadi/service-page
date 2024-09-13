@@ -64,9 +64,9 @@ export const ModelScene = React.memo(() => {
             maxPolarAngle={Math.PI}
             minPolarAngle={0}
           />
-          <Suspense
+          {/* <Suspense
             fallback={<mesh style={{ color: "white" }}>Loading...</mesh>}
-          >
+          > */}
             {selected && (
               <ModelToMove
                 modelName={selected}
@@ -75,7 +75,7 @@ export const ModelScene = React.memo(() => {
                 dragging={dragging}
               />
             )}
-          </Suspense>
+          {/* </Suspense> */}
         </Canvas>
         <ModelSwitcher />
       </div>

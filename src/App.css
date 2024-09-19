@@ -355,8 +355,8 @@ p.danger {
   display: flex;
   align-items: self-start;
   justify-content: center;
-  overflow: visible;
-  overflow-x: visible;
+  overflow: hidden;
+  overflow-x: hidden;
   background: #151515;
   border-radius: 64px;
   text-align: center;

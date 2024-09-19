@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+# Sphere Dice Visuals - Service Page
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![React](https://img.shields.io/badge/React-18.3.1-blue)](https://reactjs.org/)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3.3-purple)](https://getbootstrap.com/)
+[![Three.js](https://img.shields.io/badge/Three.js-0.166.1-orange)](https://threejs.org/)
+[![Build](https://img.shields.io/badge/Build-Passing-brightgreen)](https://github.com/rekamakadi/service-page)
+[![License](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
 
-## Available Scripts
+Sphere Dice Visuals is a digital agency providing stunning animations, captivating product visualizations, innovative branding, and full-service web development. This is the service page for the agency built with React and features 3D visual elements using Three.js.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [About the Project](#about-the-project)
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [Scripts](#scripts)
+- [Technologies](#technologies)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## About the Project
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This project showcases Sphere Dice Visuals’ services with a modern, responsive UI. Using React and Three.js, the page includes interactive 3D models and smooth animations to engage users, emphasizing the agency’s design capabilities.
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Responsive Design**: The layout adjusts beautifully across all device types.
+- **3D Model Integration**: Stunning visuals powered by Three.js.
+- **Smooth Animations**: Engage visitors with eye-catching animations using `react-on-screen` and `animate.css`.
+- **Typewriter Effect**: A dynamic service showcase using `react-type-animation`.
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Follow these instructions to get a copy of the project running on your local machine.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Before installation, ensure you have the following tools:
 
-### `npm run eject`
+- Node.js (v14.0 or higher)
+- npm or yarn
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repository:
+        git clone https://github.com/rekamakadi/service-page.git
+2. Navigate to the project directory:
+        cd service-page
+3. Install dependencies:
+        npm install
+    or
+        yarn install
+4. Start the development server:
+        npm start
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Usage
+Once the server is running, the application can be accessed in your browser at http://localhost:3000.
+The project uses React’s react-scripts for development and builds, and the deployment is handled via GitHub Pages.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Scripts
+- npm start: Runs the app in development mode.
+- npm run build: Builds the app for production.
+- npm test: Launches the test runner.
+- npm run eject: Ejects the app configuration.
 
-## Learn More
+## Technologies
+This project is built using:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- React: JavaScript library for building user interfaces.
+- Three.js: JavaScript 3D library.
+- React-Bootstrap: Bootstrap 5 components for React.
+- React Router: Declarative routing for React apps.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Contributing
+We welcome contributions to the project. To contribute:
 
-### Code Splitting
+1. Fork the repository.
+2. Create your feature branch (git checkout -b feature/new-feature).
+3. Commit your changes (git commit -m 'Add new feature').
+4. Push to the branch (git push origin feature/new-feature).
+5. Create a new Pull Request.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-### Analyzing the Bundle Size
+## Contact
+For inquiries or collaboration, please contact:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Graphic Designer: Zsolt Alfred Molnar Baka
+- https://www.linkedin.com/in/zsolt-alfred-molnar-baka/
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Developer: Reka Makadi
+- https://www.linkedin.com/in/rekamakadi/

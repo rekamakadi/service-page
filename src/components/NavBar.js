@@ -1,23 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import { BrowserRouter as Router } from "react-router-dom";
 
 export const NavBar = () => {
   const [activeLink, setActiveLink] = useState("home");
-  const [scrolled, setScrolled] = useState(false);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const onUpdateActiveLink = (value) => {
     setActiveLink(value);
+    setSidebarOpen(false);
   };
 
   const toggleSidebar = () => {
@@ -36,7 +27,9 @@ export const NavBar = () => {
       <Nav.Link
         key={link.value}
         href={link.href}
-        className={activeLink === link.value ? "active navbar-link" : "navbar-link"}
+        className={
+          activeLink === link.value ? "active navbar-link" : "navbar-link"
+        }
         onClick={() => onUpdateActiveLink(link.value)}
       >
         {link.label}
@@ -54,9 +47,7 @@ export const NavBar = () => {
           <Navbar.Brand href="/service-page/" className="sidebar-brand">
             <img src={`${process.env.PUBLIC_URL}/sdv-LOGO-03.svg`} alt="Logo" />
           </Navbar.Brand>
-          <Nav className="flex-column">
-            {renderNavLinks()}
-          </Nav>
+          <Nav className="flex-column">{renderNavLinks()}</Nav>
         </div>
       </div>
     </Router>

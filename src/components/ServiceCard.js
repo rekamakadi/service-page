@@ -10,11 +10,14 @@ const ServiceCard = ({ service, isActive, onVideoEnd }) => {
     if (isActive && video) {
       delayTimeoutRef.current = setTimeout(() => {
         video.play();
-      }, 1000);
+      }, 1300);
     } else if (video) {
       clearTimeout(delayTimeoutRef.current);
-      video.pause();
-      video.currentTime = 0;
+      delayTimeoutRef.current = setTimeout(() => {
+        video.pause();
+        video.currentTime = 0;
+        setHovered(false);
+      }, 400);
     }
 
     return () => {
@@ -22,7 +25,7 @@ const ServiceCard = ({ service, isActive, onVideoEnd }) => {
     };
   }, [isActive]);
 
-  const handleMouseEnter = () => setHovered(true);
+  const handleMouseEnter = () => isActive && setHovered(true);
   const handleMouseLeave = () => setHovered(false);
 
   const cardStyle = {

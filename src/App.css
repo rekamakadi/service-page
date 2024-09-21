@@ -402,6 +402,7 @@ p.danger {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 4px 4px 30% 4px;
   overflow: hidden;
+  transform-style: preserve-3d;
 }
 
 .service-card.active {

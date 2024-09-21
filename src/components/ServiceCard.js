@@ -33,9 +33,10 @@ const ServiceCard = ({ service, isActive, onVideoEnd }) => {
       ? "translateY(-5px) scale(1.2)"
       : "translateY(0) scale(1)",
     boxShadow: hovered
-      ? "0 10px 15px rgba(0, 0, 0, 0.2)"
+      ? "0 20px 30px rgba(0, 0, 0, 0.4);"
       : "0 4px 8px rgba(0, 0, 0, 0.1)",
     transition: "transform 0.5s, box-shadow 0.5s",
+    zIndex: hovered ? 100 : 1,
   };
 
   const descriptionStyle = {

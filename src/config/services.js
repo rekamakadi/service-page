@@ -4,7 +4,7 @@ export const services = [
       img: "https://picsum.photos/200",
       vid: `${process.env.PUBLIC_URL}/services/animation.mp4`,
       description:
-        "Transform complex concepts into engaging animations that resonate with your audience.",
+        "Transform complex concepts into engaging <span class='highlight'>animations</span> that resonate with your audience.",
       sequences: [
         "character animation",
         "motion graphics",
@@ -17,7 +17,7 @@ export const services = [
       img: "https://picsum.photos/200",
       vid: `${process.env.PUBLIC_URL}/services/product-viz.mp4`,
       description:
-        "Transform your products into realistic 3D visuals that showcase every detail.",
+        "Transform your products into realistic <span class='highlight'>3D visuals</span> that showcase every detail.",
       sequences: [
         "3D modelling",
         "product rendering",
@@ -30,7 +30,7 @@ export const services = [
       img: "https://picsum.photos/200",
       vid: `${process.env.PUBLIC_URL}/services/branding.mp4`,
       description:
-        "From logos to packaging, we craft branding solutions that leave a lasting impression.",
+        "From logos to packaging, we craft <span class='highlight'>branding</span> solutions that leave a lasting impression.",
       sequences: [
         "logo design",
         "graphic design",
@@ -43,7 +43,7 @@ export const services = [
       img: "https://picsum.photos/200",
       vid: `${process.env.PUBLIC_URL}/services/webdev.mp4`,
       description:
-        "Build your online presence with custom web solutions tailored to your needs.",
+        "Build your <span class='highlight'>online presence</span> with custom web solutions tailored to your needs.",
       sequences: [
         "simple websites",
         "custom web solutions",
@@ -56,7 +56,7 @@ export const services = [
       img: "https://picsum.photos/200",
       vid: `${process.env.PUBLIC_URL}/services/branding2.mp4`,
       description:
-        "Communicate your message clearly with professional explainer videos and seamless editing.",
+        "Communicate your message clearly with professional <span class='highlight'>explainer videos</span> and seamless editing.",
       sequences: [
         "video editing",
         "explainer videos",

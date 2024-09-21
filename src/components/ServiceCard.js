@@ -62,7 +62,7 @@ const ServiceCard = ({ service, isActive, onVideoEnd }) => {
         onEnded={onVideoEnd}
       />
       <div className={`description`} style={descriptionStyle}>
-        <p>{service.description}</p>
+      <p dangerouslySetInnerHTML={{ __html: service.description }} />
       </div>
     </div>
   );

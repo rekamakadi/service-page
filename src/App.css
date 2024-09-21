@@ -331,7 +331,7 @@ p.danger {
 }
 
 .banner .greeting {
-  color: var(--text-color);;
+  color: var(--text-color);
 }
 
 .banner p {
@@ -421,6 +421,11 @@ p.danger {
   letter-spacing: 0.5px;
   line-height: 1.7;
   text-align: left;
+}
+
+.highlight {
+  color: var(--primary-color);
+  font-weight: bold;
 }
 
 #services {

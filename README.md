@@ -23,6 +23,7 @@ Sphere Dice Visuals is a digital agency providing stunning animations, captivati
 - [Contact](#contact)
 
 ## About the Project
+![Project Screenshot](project-screenshot.png)
 
 This project showcases Sphere Dice Visuals’ services with a modern, responsive UI. Using React and Three.js, the page includes interactive 3D models and smooth animations to engage users, emphasizing the agency’s design capabilities.
 

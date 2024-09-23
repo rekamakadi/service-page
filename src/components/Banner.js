@@ -22,8 +22,8 @@ export const Banner = React.memo(() => {
                     isVisible ? "animate__animated animate__fadeIn" : ""
                   }
                 >
-                  <h1 className="greeting">Welcome, We are</h1>
-                  <h1>Sphere Dice Visuals</h1>
+                  <h4 className="greeting">Welcome, We are</h4>
+                  <h1 className="highlight">Sphere Dice Visuals</h1>
                   <br />
                   <span className="tagline">
                     <h4>Your digital dreams, designed and delivered.</h4>

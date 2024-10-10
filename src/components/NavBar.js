@@ -19,7 +19,7 @@ export const NavBar = () => {
     const links = [
       { href: "#home", label: "Home", value: "home" },
       { href: "#services", label: "Services", value: "services" },
-      { href: "#projects", label: "Projects", value: "projects" },
+      // { href: "#projects", label: "Projects", value: "projects" },
       { href: "#contact", label: "Contact", value: "contact" },
     ];
 

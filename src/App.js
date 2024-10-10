@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { NavBar } from "./components/NavBar";
 import { Banner } from "./components/Banner";
 import { Services } from "./components/Services2";
-import { Projects } from "./components/Projects";
+// import { Projects } from "./components/Projects";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { Contact } from "./components/Contact";
@@ -15,7 +15,7 @@ function App() {
         <Suspense fallback={<div>Loading...</div>}>
           <Banner />
           <Services />
-          <Projects />
+          {/* <Projects /> */}
           <Contact />
           <Footer />
         </Suspense>

@@ -2,7 +2,7 @@ export const services = [
     {
       title: "Animation",
       img: "https://picsum.photos/200",
-      vid: `${process.env.PUBLIC_URL}/services/animation.mp4`,
+      vid: `${process.env.PUBLIC_URL}/services/animation.webm`,
       description:
         "Transform complex concepts into engaging <span class='highlight'>animations</span> that resonate with your audience.",
       sequences: [
@@ -15,7 +15,7 @@ export const services = [
     {
       title: "Product Visualization",
       img: "https://picsum.photos/200",
-      vid: `${process.env.PUBLIC_URL}/services/product-viz.mp4`,
+      vid: `${process.env.PUBLIC_URL}/services/product-viz.webm`,
       description:
         "Transform your products into realistic <span class='highlight'>3D visuals</span> that showcase every detail.",
       sequences: [
@@ -28,7 +28,7 @@ export const services = [
     {
       title: "Branding",
       img: "https://picsum.photos/200",
-      vid: `${process.env.PUBLIC_URL}/services/branding.mp4`,
+      vid: `${process.env.PUBLIC_URL}/services/branding.webm`,
       description:
         "From logos to packaging, we craft <span class='highlight'>branding</span> solutions that leave a lasting impression.",
       sequences: [
@@ -41,7 +41,7 @@ export const services = [
     {
       title: "Web Development",
       img: "https://picsum.photos/200",
-      vid: `${process.env.PUBLIC_URL}/services/webdev.mp4`,
+      vid: `${process.env.PUBLIC_URL}/services/webdev.webm`,
       description:
         "Build your <span class='highlight'>online presence</span> with custom web solutions tailored to your needs.",
       sequences: [
@@ -54,7 +54,7 @@ export const services = [
     {
       title: "Explainer Videos / Video Editing",
       img: "https://picsum.photos/200",
-      vid: `${process.env.PUBLIC_URL}/services/branding2.mp4`,
+      vid: `${process.env.PUBLIC_URL}/services/branding2.webm`,
       description:
         "Communicate your message clearly with professional <span class='highlight'>explainer videos</span> and seamless editing.",
       sequences: [

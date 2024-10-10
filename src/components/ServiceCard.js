@@ -61,9 +61,15 @@ const ServiceCard = ({ service, isActive, onVideoEnd }) => {
         muted
         loop={false}
         onEnded={onVideoEnd}
+        type="video/webm"
+        width="350"
+        height="250"
+        controlsList="nodownload nofullscreen"
+        fetchpriority="high"
+        playsInline
       />
       <div className={`description`} style={descriptionStyle}>
-      <p dangerouslySetInnerHTML={{ __html: service.description }} />
+        <p dangerouslySetInnerHTML={{ __html: service.description }} />
       </div>
     </div>
   );
